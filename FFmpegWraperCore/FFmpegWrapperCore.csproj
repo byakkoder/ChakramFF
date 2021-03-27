@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5846085F-7080-4200-B39F-961FCB8E4F2D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FFmpegWrapperCore</RootNamespace>
+    <AssemblyName>FFmpegWrapperCore</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChakramSettings\ChakramSettingsSingleton.cs" />
+    <Compile Include="ChakramSettings\FFmpegSettingsValidator.cs" />
+    <Compile Include="ChakramSettings\LoadSettingsManager.cs" />
+    <Compile Include="ChakramSettings\SaveSettingsManager.cs" />
+    <Compile Include="ChakramSettings\SettingsCleaner.cs" />
+    <Compile Include="CommandExecution\CommandBasicRunner.cs" />
+    <Compile Include="CommandExecution\BasicStartInfoBuilder.cs" />
+    <Compile Include="CommandExecution\CommandRunnerValidator.cs" />
+    <Compile Include="CommandExecution\StartInfoBuilder.cs" />
+    <Compile Include="CommandExecution\StartInfoValidator.cs" />
+    <Compile Include="Conversion\Merger.cs" />
+    <Compile Include="DotNetWrappers\ConfigurationWrapper.cs" />
+    <Compile Include="DotNetWrappers\FileWrapper.cs" />
+    <Compile Include="DotNetWrappers\ProcessWrapper.cs" />
+    <Compile Include="DotNetWrappers\SerializationWrapper.cs" />
+    <Compile Include="FFmpegArguments\DefaultArgGenerator.cs" />
+    <Compile Include="FFmpegArguments\DelayArgGenerator.cs" />
+    <Compile Include="FFmpegArguments\MapArgGenerator.cs" />
+    <Compile Include="FFmpegArguments\MergeArgGenerator.cs" />
+    <Compile Include="FFmpegArguments\MetadataArgGenerator.cs" />
+    <Compile Include="FFmpegArguments\MultipleArgsGenerator.cs" />
+    <Compile Include="FFmpegArguments\PlayerArgGenerator.cs" />
+    <Compile Include="CommandExecution\CommandSynchRunner.cs" />
+    <Compile Include="CommandExecution\CommandAsyncRunner.cs" />
+    <Compile Include="FFmpegArguments\FFmpegArgsResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FFmpegArgsResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="FFmpegArguments\StreamSpecifierArgGenerator.cs" />
+    <Compile Include="FFmpegArguments\ShowModeArgGenerator.cs" />
+    <Compile Include="FFmpegArguments\InputArgGenerator.cs" />
+    <Compile Include="FFmpegArguments\StreamTypeArgGenerator.cs" />
+    <Compile Include="FFmpegResponse\FFmpegResponseBuilder.cs" />
+    <Compile Include="FFmpegArguments\FileInfoArgGenerator.cs" />
+    <Compile Include="FFmpegResponse\FFmpegResponseMapper.cs" />
+    <Compile Include="FFmpegResponse\PropertiesDictBuilder.cs" />
+    <Compile Include="Helpers\LanguageHelper.cs" />
+    <Compile Include="Helpers\StreamIndexer.cs" />
+    <Compile Include="Helpers\SecondsTimeConverter.cs" />
+    <Compile Include="LibResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="MediaInfoQuery\DurationQueryHelper.cs" />
+    <Compile Include="MediaMetadata\MediaInfoBuilder.cs" />
+    <Compile Include="MediaPlayer\Player.cs" />
+    <Compile Include="MediaInfoQuery\SizeQueryHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\VideoInfoHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{37CA8B11-27EF-4A18-AA58-7B2B19695C41}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{3af660a9-d2a5-4245-abac-6b1ed270eea7}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FFmpegArguments\FFmpegArgsResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FFmpegArgsResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LibResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Languages_ISO_639_2.json" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
