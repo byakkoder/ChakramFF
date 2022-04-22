@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}</ProjectGuid>
+    <ProjectGuid>{37CA8B11-27EF-4A18-AA58-7B2B19695C41}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bootstrapper</RootNamespace>
-    <AssemblyName>Bootstrapper</AssemblyName>
+    <RootNamespace>Entities</RootNamespace>
+    <AssemblyName>Entities</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -67,8 +67,12 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,37 +81,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DIContainerManager.cs" />
-    <Compile Include="UnityDIInitializer.cs" />
+    <Compile Include="ChakramSettingsInfo.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="FFmpegArgs\DefaultArg.cs" />
+    <Compile Include="FFmpegArgs\FileInfoArg.cs" />
+    <Compile Include="FFmpegArgs\InputArg.cs" />
+    <Compile Include="FFmpegArgs\MapArg.cs" />
+    <Compile Include="FFmpegArgs\MetadataArg.cs" />
+    <Compile Include="FFmpegArgs\PlayerArgs.cs" />
+    <Compile Include="FFmpegArgs\DelayArg.cs" />
+    <Compile Include="FFmpegArgs\ShowModeArg.cs" />
+    <Compile Include="FFmpegArgs\StreamSpecifierArg.cs" />
+    <Compile Include="FFmpegArgs\StreamTypeArg.cs" />
+    <Compile Include="FFmpegResponseInfo.cs" />
+    <Compile Include="LanguageInfo.cs" />
+    <Compile Include="MediaFileInfo\FormatTags.cs" />
+    <Compile Include="MediaFileInfo\MediaFormat.cs" />
+    <Compile Include="MediaFileInfo\MediaInfo.cs" />
+    <Compile Include="MediaFileInfo\MediaStream.cs" />
+    <Compile Include="MediaFileInfo\Serialization\ParseBoolStringConverter.cs" />
+    <Compile Include="MediaFileInfo\Serialization\ParseLongStringConverter.cs" />
+    <Compile Include="FFmpegArgs\MergeArgs.cs" />
+    <Compile Include="Dto\MediaInfoDto.cs" />
+    <Compile Include="Dto\StreamSettingsInputDto.cs" />
+    <Compile Include="Dto\StreamItemDto.cs" />
+    <Compile Include="Dto\StreamSettingsDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Entities\Entities.csproj">
-      <Project>{37ca8b11-27ef-4a18-aa58-7b2b19695c41}</Project>
-      <Name>Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FFmpegWraperCore\FFmpegWrapperCore.csproj">
-      <Project>{5846085F-7080-4200-B39F-961FCB8E4F2D}</Project>
-      <Name>FFmpegWrapperCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
-      <Project>{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}</Project>
-      <Name>Interfaces</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
-      <Version>4.7.1</Version>
-    </PackageReference>
-    <PackageReference Include="System.Threading.Tasks.Extensions">
-      <Version>4.5.4</Version>
-    </PackageReference>
-    <PackageReference Include="Unity">
-      <Version>5.11.7</Version>
-    </PackageReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
