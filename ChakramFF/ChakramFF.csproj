@@ -1,264 +1,54 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A76B1791-D185-4DB5-A9AD-78AAAAFD99EF}</ProjectGuid>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ChakramFF</RootNamespace>
-    <AssemblyName>ChakramFF</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>ChakramAppIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x86\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Controls\StreamItem.cs">
+    <Compile Update="Controls\StreamItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\StreamItem.Designer.cs">
-      <DependentUpon>StreamItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\StreamList.cs">
+    <Compile Update="Controls\StreamList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\StreamList.Designer.cs">
-      <DependentUpon>StreamList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmAbout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmAbout.Designer.cs">
-      <DependentUpon>FrmAbout.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmBase.Designer.cs">
-      <DependentUpon>FrmBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmMediaInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmMediaInfo.Designer.cs">
-      <DependentUpon>FrmMediaInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmMerge.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmMerge.Designer.cs">
-      <DependentUpon>FrmMerge.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmSettings.Designer.cs">
-      <DependentUpon>FrmSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\GroupInfoVisualizer.cs">
+    <Compile Update="Controls\GroupInfoVisualizer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\GroupInfoVisualizer.Designer.cs">
-      <DependentUpon>GroupInfoVisualizer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\MediaInfoVisualizer.cs">
+    <Compile Update="Controls\MediaInfoVisualizer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\MediaInfoVisualizer.Designer.cs">
-      <DependentUpon>MediaInfoVisualizer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ObjectVisualizer.cs">
+    <Compile Update="Controls\ObjectVisualizer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ObjectVisualizer.Designer.cs">
-      <DependentUpon>ObjectVisualizer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmStreamSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmStreamSettings.Designer.cs">
-      <DependentUpon>FrmStreamSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\PreviewStreamHelper.cs" />
-    <Compile Include="Helpers\StreamIdHelper.cs" />
-    <Compile Include="Mappers\DefaultArgsMapper.cs" />
-    <Compile Include="Mappers\MapArgMapper.cs" />
-    <Compile Include="Mappers\MapArgsMapper.cs" />
-    <Compile Include="Mappers\MetadataArgMapper.cs" />
-    <Compile Include="Mappers\MetadataArgsMapper.cs" />
-    <Compile Include="Mappers\StreamSettingsMapper.cs" />
-    <Compile Include="Mappers\StreamsMetadataArgsMapper.cs" />
-    <Compile Include="Mappers\StreamToMergeInfoMapper.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controls\PropertyVisualizer.cs">
+    <Compile Update="Controls\PropertyVisualizer.cs">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\PropertyVisualizer.Designer.cs">
-      <DependentUpon>PropertyVisualizer.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Controls\StreamItem.resx">
-      <DependentUpon>StreamItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\StreamList.resx">
-      <DependentUpon>StreamList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmAbout.resx">
-      <DependentUpon>FrmAbout.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmBase.resx">
-      <DependentUpon>FrmBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmMediaInfo.resx">
-      <DependentUpon>FrmMediaInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmMerge.resx">
-      <DependentUpon>FrmMerge.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmSettings.resx">
-      <DependentUpon>FrmSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\GroupInfoVisualizer.resx">
-      <DependentUpon>GroupInfoVisualizer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\MediaInfoVisualizer.resx">
-      <DependentUpon>MediaInfoVisualizer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ObjectVisualizer.resx">
-      <DependentUpon>ObjectVisualizer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmStreamSettings.resx">
-      <DependentUpon>FrmStreamSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="Controls\PropertyVisualizer.resx">
-      <DependentUpon>PropertyVisualizer.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Bootstrapper\Bootstrapper.csproj">
-      <Project>{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}</Project>
-      <Name>Bootstrapper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Entities\Entities.csproj">
-      <Project>{37CA8B11-27EF-4A18-AA58-7B2B19695C41}</Project>
-      <Name>Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FFmpegWraperCore\FFmpegWrapperCore.csproj">
-      <Project>{5846085f-7080-4200-b39f-961fcb8e4f2d}</Project>
-      <Name>FFmpegWrapperCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
-      <Project>{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}</Project>
-      <Name>Interfaces</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\Bootstrapper\Bootstrapper.csproj" />
+    <ProjectReference Include="..\Entities\Entities.csproj" />
+    <ProjectReference Include="..\FFmpegWraperCore\FFmpegWrapperCore.csproj" />
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -267,6 +57,8 @@
     <Content Include="ChakramAppIcon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
       <Version>6.0.0</Version>
     </PackageReference>
@@ -276,16 +68,18 @@
     <PackageReference Include="Unity">
       <Version>5.11.10</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.310801">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(SolutionDir)LICENSE" "$(TargetDir)"
-xcopy "$(SolutionDir)README.md" "$(TargetDir)"
-xcopy "$(SolutionDir)THIRD-PARTY-NOTICES.txt" "$(TargetDir)"</PostBuildEvent>
+    <PreBuildEvent>if EXIST "$(TargetDir)LICENSE" ( del "$(TargetDir)LICENSE" )
+if EXIST "$(TargetDir)README.md" ( del "$(TargetDir)README.md" )
+if EXIST "$(TargetDir)THIRD-PARTY-NOTICES.txt" ( del "$(TargetDir)THIRD-PARTY-NOTICES.txt" )</PreBuildEvent>
   </PropertyGroup>
-  <PropertyGroup>
-    <PreBuildEvent>del "$(TargetDir)LICENSE"
-del "$(TargetDir)README.md"
-del "$(TargetDir)THIRD-PARTY-NOTICES.txt"</PreBuildEvent>
-  </PropertyGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(SolutionDir)LICENSE&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;xcopy &quot;$(SolutionDir)README.md&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;xcopy &quot;$(SolutionDir)THIRD-PARTY-NOTICES.txt&quot; &quot;$(TargetDir)&quot;" />
+  </Target>
 </Project>

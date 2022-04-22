@@ -1,4 +1,4 @@
-/*********************************************************************************
+﻿/*********************************************************************************
  Copyright (C) 2021-present John García
  
  This file is part of ChakramFF.
@@ -40,6 +40,7 @@ namespace ChakramFF
             loadSettingsManager.Load();
 
             Application.EnableVisualStyles();
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMain());
         }
