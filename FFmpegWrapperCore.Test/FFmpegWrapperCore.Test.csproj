@@ -1,158 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FFmpegWrapperCore.Test</RootNamespace>
-    <AssemblyName>FFmpegWrapperCore.Test</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
-    <IsCodedUITest>False</IsCodedUITest>
-    <TestProjectType>UnitTest</TestProjectType>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\x86\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="Moq" Version="4.17.2" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.7" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
+    <PackageReference Include="coverlet.collector" Version="3.1.0" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="ChakramSettings\FFmpegSettingsValidatorTest.cs" />
-    <Compile Include="ChakramSettings\LoadSettingsManagerTest.cs" />
-    <Compile Include="ChakramSettings\SaveSettingsManagerTest.cs" />
-    <Compile Include="ChakramSettings\SettingsCleanerTest.cs" />
-    <Compile Include="CommandExecution\CommandAsyncRunnerTest.cs" />
-    <Compile Include="CommandExecution\CommandBasicRunnerTest.cs" />
-    <Compile Include="CommandExecution\BasicStartInfoBuilderTest.cs" />
-    <Compile Include="CommandExecution\StartInfoBuilderTest.cs" />
-    <Compile Include="CommandExecution\CommandSynchRunnerTest.cs" />
-    <Compile Include="CommandExecution\StartInfoValidatorTest.cs" />
-    <Compile Include="CommandExecution\CommandRunnerValidatorTest.cs" />
-    <Compile Include="FFmpegArguments\PlayerArgBuilderTest.cs" />
-    <Compile Include="FFmpegArguments\FileInfoArgGeneratorTest.cs" />
-    <Compile Include="FFmpegArguments\MapArgGeneratorTest.cs" />
-    <Compile Include="FFmpegArguments\MergeArgBuilderTest.cs" />
-    <Compile Include="FFmpegArguments\StreamSpecifierGeneratorTest.cs" />
-    <Compile Include="FFmpegArguments\ShowModeArgGeneratorTest.cs" />
-    <Compile Include="FFmpegArguments\DelayArgGeneratorTest.cs" />
-    <Compile Include="FFmpegArguments\InputArgGeneratorTest.cs" />
-    <Compile Include="FFmpegArguments\MetadataArgGeneratorTest.cs" />
-    <Compile Include="FFmpegArguments\MultipleArgsGeneratorTest.cs" />
-    <Compile Include="FFmpegArguments\StreamTypeArgGeneratorTest.cs" />
-    <Compile Include="FFmpegArguments\DefaultArgGeneratorTest.cs" />
-    <Compile Include="FFmpegResponse\PropertiesDictBuilderTest.cs" />
-    <Compile Include="FFmpegResponse\FFmpegResponseMapperTest.cs" />
-    <Compile Include="FFmpegResponse\FFmpegResponseBuilderTest.cs" />
-    <Compile Include="Helpers\StreamIndexerTest.cs" />
-    <Compile Include="Helpers\SecondsTimeConverterTest.cs" />
-    <Compile Include="MediaInfoQuery\SizeQueryHelperTest.cs" />
-    <Compile Include="MediaInfoQuery\DurationQueryHelperTest.cs" />
-    <Compile Include="MediaMetadata\MediaInfoBuilderTest.cs" />
-    <Compile Include="MediaPlayer\PlayerTest.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestHelpers\MockHelper.cs" />
-    <Compile Include="Helpers\VideoInfoHelperTest.cs" />
+    <ProjectReference Include="..\Entities\Entities.csproj" />
+    <ProjectReference Include="..\FFmpegWraperCore\FFmpegWrapperCore.csproj" />
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Entities\Entities.csproj">
-      <Project>{37CA8B11-27EF-4A18-AA58-7B2B19695C41}</Project>
-      <Name>Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FFmpegWraperCore\FFmpegWrapperCore.csproj">
-      <Project>{5846085F-7080-4200-B39F-961FCB8E4F2D}</Project>
-      <Name>FFmpegWrapperCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
-      <Project>{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}</Project>
-      <Name>Interfaces</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Castle.Core">
-      <Version>4.4.1</Version>
-    </PackageReference>
-    <PackageReference Include="Moq">
-      <Version>4.17.2</Version>
-    </PackageReference>
-    <PackageReference Include="MSTest.TestAdapter">
-      <Version>2.2.9</Version>
-    </PackageReference>
-    <PackageReference Include="MSTest.TestFramework">
-      <Version>2.2.9</Version>
-    </PackageReference>
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
-      <Version>6.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="System.Threading.Tasks.Extensions">
-      <Version>4.5.4</Version>
-    </PackageReference>
-  </ItemGroup>
-  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>
