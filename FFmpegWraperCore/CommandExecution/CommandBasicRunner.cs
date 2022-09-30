@@ -43,9 +43,7 @@ namespace FFmpegWrapperCore.CommandExecution
         {
             _process = process;
             _startInfoBuilder = startInfoBuilder;
-            _commandRunnerValidator = commandRunnerValidator;
-
-            _process.InitializeProcess();
+            _commandRunnerValidator = commandRunnerValidator;            
         }
 
         #endregion
@@ -61,6 +59,7 @@ namespace FFmpegWrapperCore.CommandExecution
                 _process.Kill();
             }
 
+            _process.InitializeProcess();
             _process.StartInfo = _startInfoBuilder.Build(exePath, arguments);
             _process.Start();
         }
