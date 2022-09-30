@@ -48,6 +48,7 @@ namespace FFmpegWrapperCore.Conversion
         #region Constants
 
         private const string EndOfProcessTag = "video";
+        private const string StopCommand = "q";
         private const int FullPercent = 100;
 
         #endregion
@@ -62,6 +63,7 @@ namespace FFmpegWrapperCore.Conversion
         
         private MergeArgs _mergeArgs;
         private bool _endProgressRaised;
+        private bool _isAborted;
 
         #endregion
 
@@ -90,6 +92,7 @@ namespace FFmpegWrapperCore.Conversion
         public void Merge(MergeArgs mergeArgs)
         {
             _mergeArgs = mergeArgs;
+            _isAborted = false;
 
             if (File.Exists(mergeArgs.OutputFile))
             {
@@ -106,7 +109,8 @@ namespace FFmpegWrapperCore.Conversion
         public void Stop()
         {
             _endProgressRaised = false;
-            _commandRunner.Stop();
+            _commandRunner.Stop(StopCommand);
+            _isAborted = true;
 
             if (!File.Exists(_mergeArgs.OutputFile))
             {
@@ -144,7 +148,7 @@ namespace FFmpegWrapperCore.Conversion
             // Fix: Sometimes FFmpeg does not write the last frame processed in the console output.
             if (outputLine.StartsWith(EndOfProcessTag))
             {
-                if (!_endProgressRaised)
+                if (!_endProgressRaised && !_isAborted)
                 {
                     OnProgress?.Invoke(FullPercent);
                     OnEndProgress?.Invoke();

@@ -31,5 +31,7 @@ namespace Interfaces.FFmpegWrapperCore.CommandExecution
         void Run(string exePath, string arguments);
 
         void Stop();
+
+        void Stop(string stopCommand);
     }
 }

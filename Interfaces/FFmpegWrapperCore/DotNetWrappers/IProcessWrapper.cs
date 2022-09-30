@@ -28,6 +28,7 @@ namespace Interfaces.FFmpegWrapperCore.DotNetWrappers
     {
         void InitializeProcess();
         ProcessStartInfo StartInfo { get; set; }
+        StreamWriter StandardInput { get; }
         StreamReader StandardOutput { get; }
         StreamReader StandardError { get; }
         bool HasExited { get; }

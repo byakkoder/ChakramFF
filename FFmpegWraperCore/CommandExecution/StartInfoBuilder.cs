@@ -52,6 +52,7 @@ namespace FFmpegWrapperCore.CommandExecution
             _startInfoValidator.Validate(exePath, arguments);
 
             ProcessStartInfo processStartInfo = _basicStartInfoBuilder.Build(exePath, arguments);
+            processStartInfo.RedirectStandardInput = true;
             processStartInfo.RedirectStandardOutput = true;
             processStartInfo.RedirectStandardError = true;
 

@@ -34,6 +34,11 @@ namespace FFmpegWrapperCore.Helpers
         
         public void SetIndex(List<MediaStream> streams)
         {
+            if (streams == null)
+            {
+                return;
+            }
+
             if (streams.Any(stream => stream.StreamType == StreamType.None))
             {
                 throw new ArgumentException("Stream has a not valid type.");

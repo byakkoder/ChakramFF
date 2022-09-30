@@ -60,6 +60,14 @@ namespace FFmpegWrapperCore.DotNetWrappers
             }
         }
 
+        public StreamWriter StandardInput
+        {
+            get
+            {
+                return _process.StandardInput;
+            }
+        }
+
         public StreamReader StandardOutput
         {
             get

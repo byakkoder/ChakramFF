@@ -23,6 +23,7 @@ using Interfaces.FFmpegWrapperCore.CommandExecution;
 using Interfaces.FFmpegWrapperCore.DotNetWrappers;
 using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace FFmpegWrapperCore.CommandExecution
 {
@@ -78,9 +79,25 @@ namespace FFmpegWrapperCore.CommandExecution
 
         public void Stop()
         {
-            if (_process != null)
+            if (_process == null)
             {
-                _process.Kill();
+                return;
+            }
+
+            _process.Kill();
+        }
+
+        public void Stop(string stopCommand)
+        {
+            if (_process == null)
+            {
+                return;
+            }
+
+            using (StreamWriter sr = _process.StandardInput)
+            {
+                sr.WriteLine(stopCommand);
+                sr.Close();
             }
         }
 
