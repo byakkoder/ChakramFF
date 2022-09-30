@@ -19,11 +19,13 @@
  For more details, see README.md.
  *********************************************************************************/
 
-using Bootstrapper;
-using Interfaces.FFmpegWrapperCore.ChakramSettings;
+using ChakramFF.Bootstrapper;
+using ChakramFF.Forms;
+using ChakramFF.Helpers;
+using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
-using Unity;
 
 namespace ChakramFF
 {
@@ -35,14 +37,18 @@ namespace ChakramFF
         [STAThread]
         static void Main()
         {
-            UnityDIInitializer.Initialize();
-            ILoadSettingsManager loadSettingsManager = DIContainerManager.GetContainer().Resolve<ILoadSettingsManager>();
-            loadSettingsManager.Load();
+            List<Type> transientDependencies = new List<Type>();
+            transientDependencies.Add(typeof(FrmMain));
+            transientDependencies.Add(typeof(FrmSettings));
+            transientDependencies.Add(typeof(FrmMerge));
+            transientDependencies.Add(typeof(FrmStreamSettings));
+            transientDependencies.Add(typeof(PreviewStreamHelper));
+            DIInitializer.Initialize(transientDependencies);
 
             Application.EnableVisualStyles();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMain());
+            Application.Run(DIInitializer.ServiceProvider.GetRequiredService<FrmMain>());
         }
     }
 }

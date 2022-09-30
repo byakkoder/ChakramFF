@@ -28,6 +28,8 @@ using System.IO;
 using Entities.MediaFileInfo;
 using ChakramFF.Helpers;
 using ChakramFF.Forms;
+using ChakramFF.Bootstrapper;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ChakramFF.Controls
 {
@@ -108,14 +110,15 @@ namespace ChakramFF.Controls
         {
             OnSelect?.Invoke(this);
 
-            PreviewStreamHelper.Show(_streamItemDto.MediaFormat.Filename, _streamItemDto.MediaStream.StreamType, Convert.ToInt32(_streamItemDto.MediaStream.Index));
+            PreviewStreamHelper previewStreamHelper = DIInitializer.ServiceProvider.GetRequiredService<PreviewStreamHelper>();
+            previewStreamHelper.Show(_streamItemDto.MediaFormat.Filename, _streamItemDto.MediaStream.StreamType, Convert.ToInt32(_streamItemDto.MediaStream.Index));
         }
 
         private void BtnSettings_Click(object sender, EventArgs e)
         {
             OnSelect?.Invoke(this);
 
-            FrmStreamSettings frmStreamSettings = new FrmStreamSettings();
+            FrmStreamSettings frmStreamSettings = DIInitializer.ServiceProvider.GetRequiredService<FrmStreamSettings>();
 
             frmStreamSettings.SetSettings(_streamItemDto.StreamSettings);
             
