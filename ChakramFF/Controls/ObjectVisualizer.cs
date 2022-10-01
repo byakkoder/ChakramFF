@@ -22,6 +22,8 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Reflection;
+using System.Collections;
+using System.Text;
 
 namespace ChakramFF
 {
@@ -38,26 +40,69 @@ namespace ChakramFF
 
         #region Public Methods
         
-        public void SetDataObject(object dataObject)
+        public void SetDataObject(object dataObject, string prefix = null)
         {
             List<PropertyInfo> properties = new List<PropertyInfo>(dataObject.GetType().GetProperties());
-            properties.ForEach(property => SetProperty(property, dataObject));
+            properties.ForEach(property => 
+            { 
+                if (property.PropertyType.IsPrimitive ||
+                property.PropertyType.IsValueType ||
+                property.GetValue(dataObject) is IDictionary ||
+                property.PropertyType.Namespace.StartsWith("System"))
+                {
+                    SetProperty(property, dataObject, prefix);
+                }
+                else
+                {
+                    SetDataObject(property.GetValue(dataObject), property.Name);
+                }
+            });
         }
 
         #endregion
 
         #region Private Methods
         
-        private void SetProperty(PropertyInfo property, object dataObject)
+        private void SetProperty(PropertyInfo property, object dataObject, string prefix)
         {
             PropertyVisualizer propertyVisualizer = new PropertyVisualizer();
             object propertyValue = property.GetValue(dataObject);
-            string value = propertyValue != null ? propertyValue.ToString() : string.Empty;
-            propertyVisualizer.SetData(property.Name, value);
+            string value = GetPropertyStringValue(propertyValue);
+
+            string composedName = !string.IsNullOrWhiteSpace(prefix) ? $"{prefix}.{property.Name}" : property.Name;
+
+            propertyVisualizer.SetData(composedName, value);
             propertyVisualizer.Dock = DockStyle.Top;
             this.Controls.Add(propertyVisualizer);
             propertyVisualizer.BringToFront();
-        } 
+        }
+        
+        private string GetPropertyStringValue(object propertyValue)
+        {
+            if (propertyValue is IDictionary)
+            {
+                return GetDictValues((IDictionary)propertyValue);
+            }
+
+            return propertyValue != null ? propertyValue.ToString() : string.Empty;
+        }
+
+        private string GetDictValues(IDictionary dictionary)
+        {
+            StringBuilder dictValueBuilder = new StringBuilder();
+
+            foreach (DictionaryEntry dictionaryEntry in dictionary)
+            {
+                if(dictValueBuilder.Length > 0)
+                {
+                    dictValueBuilder.Append(", ");
+                }
+
+                dictValueBuilder.Append($"{dictionaryEntry.Key.ToString()}: {dictionaryEntry.Value.ToString()}");
+            }
+
+            return dictValueBuilder.ToString();
+        }
 
         #endregion
     }
