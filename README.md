@@ -49,9 +49,9 @@ see the THIRD-PARTY-NOTICES.txt file.
 
 ## Dependencies
 
-* .NET Framework 4.7.2
+* .NET 8
 * FFmpeg >= 4.2.3 (ffmpeg.exe is used to process video files, ffprobe.exe is used to get media info and ffplay is used to preview streams.)
-* Microsoft Windows OS compatible with .NET Framework 4.7.2 and FFmpeg >= 4.2.3
+* Microsoft Windows OS compatible with .NET 8 and FFmpeg >= 4.2.3
 
 
 ## How to start with ChakramFF
@@ -78,6 +78,11 @@ see the THIRD-PARTY-NOTICES.txt file.
 ## Compatibility
 
 ChakramFF has been tested with FFmpeg version 4.2.3
+
+
+## WARNING
+
+This project is being upgraded from .NET Framework 4.7.2 to .NET 8, some issues may occur due to this upgrade process.
 
 
 ## Contact
