@@ -209,7 +209,11 @@ namespace ChakramFF.Forms
 
                 if (MessageBox.Show("¿Do you want to play the generated video?", "Done!", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    Process.Start(TxtTarget.Text);
+                    Process process = new Process();
+
+                    process.StartInfo.UseShellExecute = true;
+                    process.StartInfo.FileName = TxtTarget.Text;
+                    process.Start();
                 }
 
                 _targetMediaInfoModel = _mediaInfoBuilder.BuildMediaInfo(new FileInfoArg { FilePath = TxtTarget.Text });

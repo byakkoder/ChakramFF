@@ -44,10 +44,8 @@ namespace FFmpegWrapperCore.FFmpegResponse
 
         public FFmpegResponseInfo Map(Dictionary<string, string> propertiesDict)
         {
+            // Fix: In current versions of FFmpeg the Fps, Frame and Q fields are not produced in the output.
             if(!propertiesDict.ContainsKey(Bitrate) ||
-                !propertiesDict.ContainsKey(Fps) ||
-                !propertiesDict.ContainsKey(Frame) ||
-                !propertiesDict.ContainsKey(Q) ||
                 !propertiesDict.ContainsKey(Size) ||
                 !propertiesDict.ContainsKey(Speed) ||
                 !propertiesDict.ContainsKey(Time))
@@ -58,9 +56,6 @@ namespace FFmpegWrapperCore.FFmpegResponse
             return new FFmpegResponseInfo
             {
                 Bitrate = propertiesDict[Bitrate],
-                Fps = Convert.ToSingle(propertiesDict[Fps]),
-                Frame = Convert.ToInt64(propertiesDict[Frame]),
-                Q = Convert.ToSingle(propertiesDict[Q]),
                 Size = propertiesDict[Size],
                 Speed = propertiesDict[Speed],
                 Time = propertiesDict[Time]

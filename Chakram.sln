@@ -1,11 +1,11 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegWrapperCore", "FFmpegWraperCore\FFmpegWrapperCore.csproj", "{5846085F-7080-4200-B39F-961FCB8E4F2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegWrapperCore", "FFmpegWraperCore\FFmpegWrapperCore.csproj", "{5846085F-7080-4200-B39F-961FCB8E4F2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{37CA8B11-27EF-4A18-AA58-7B2B19695C41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{37CA8B11-27EF-4A18-AA58-7B2B19695C41}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegWrapperCore.Test", "FFmpegWrapperCore.Test\FFmpegWrapperCore.Test.csproj", "{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}"
 EndProject
@@ -16,11 +16,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		THIRD-PARTY-NOTICES.txt = THIRD-PARTY-NOTICES.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChakramFF", "ChakramFF\ChakramFF.csproj", "{A76B1791-D185-4DB5-A9AD-78AAAAFD99EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChakramFF", "ChakramFF\ChakramFF.csproj", "{A76B1791-D185-4DB5-A9AD-78AAAAFD99EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\Interfaces.csproj", "{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrapper", "Bootstrapper\Bootstrapper.csproj", "{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootstrapper", "Bootstrapper\Bootstrapper.csproj", "{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

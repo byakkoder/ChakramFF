@@ -29,7 +29,8 @@ namespace FFmpegWrapperCore.FFmpegResponse
     {
         #region Constants
         
-        private const string ValidLineStart = "frame="; 
+        private const string ValidLineStartLegacy = "frame="; // Old FFmpeg versions output
+        private const string ValidLineStartCurrent = "size="; // Current FFmpeg versions output
 
         #endregion
 
@@ -56,7 +57,7 @@ namespace FFmpegWrapperCore.FFmpegResponse
 
         public FFmpegResponseInfo Build(string ffmpegOutputLine)
         {
-            if (!ffmpegOutputLine.StartsWith(ValidLineStart))
+            if (!ffmpegOutputLine.StartsWith(ValidLineStartCurrent) && !ffmpegOutputLine.StartsWith(ValidLineStartLegacy))
             {
                 return null;
             }

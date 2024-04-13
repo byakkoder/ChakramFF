@@ -47,7 +47,8 @@ namespace FFmpegWrapperCore.Conversion
 
         #region Constants
 
-        private const string EndOfProcessTag = "video";
+        private const string EndOfProcessTagCurrent = "[out";
+        private const string EndOfProcessTagLegacy = "video";
         private const int FullPercent = 100;
 
         #endregion
@@ -142,7 +143,7 @@ namespace FFmpegWrapperCore.Conversion
             }
 
             // Fix: Sometimes FFmpeg does not write the last frame processed in the console output.
-            if (outputLine.StartsWith(EndOfProcessTag))
+            if (outputLine.StartsWith(EndOfProcessTagCurrent) || outputLine.StartsWith(EndOfProcessTagLegacy))
             {
                 if (!_endProgressRaised)
                 {
