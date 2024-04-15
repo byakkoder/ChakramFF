@@ -73,7 +73,6 @@ namespace FFmpegWrapperCore.Test.MediaMetadata
             FileInfoArg fileInfoArg = new FileInfoArg { FilePath = @"C:\sourceFile.mp4" };
             string fileName = "sourceFile.mp4";
             MemoryStream stream = new MemoryStream();
-            Image image = new Bitmap(300, 200);
             MediaInfo mediaInfo = new MediaInfo();
             Size videoSize = new Size(800, 600);
             TimeSpan videoDuration = new TimeSpan(1, 20, 10);

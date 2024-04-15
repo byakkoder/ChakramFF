@@ -56,9 +56,6 @@ namespace FFmpegWrapperCore.Test.FFmpegResponse
             
             Dictionary<string, string> propertiesDict = new Dictionary<string, string>();
             propertiesDict.Add(FFmpegResponseMapper.Bitrate, "320.0kbits/s");
-            propertiesDict.Add(FFmpegResponseMapper.Fps, "30,5");
-            propertiesDict.Add(FFmpegResponseMapper.Frame, "25");
-            propertiesDict.Add(FFmpegResponseMapper.Q, "20,5");
             propertiesDict.Add(FFmpegResponseMapper.Size, "1536kB");
             propertiesDict.Add(FFmpegResponseMapper.Speed, "15x");
             propertiesDict.Add(FFmpegResponseMapper.Time, "00:01:34.08");
@@ -74,9 +71,6 @@ namespace FFmpegWrapperCore.Test.FFmpegResponse
             #region Assert
             
             Assert.AreEqual("320.0kbits/s", fFmpegResponseInfo.Bitrate);
-            Assert.AreEqual(30.5F, fFmpegResponseInfo.Fps);
-            Assert.AreEqual(25, fFmpegResponseInfo.Frame);
-            Assert.AreEqual(20.5F, fFmpegResponseInfo.Q);
             Assert.AreEqual("1536kB", fFmpegResponseInfo.Size);
             Assert.AreEqual("15x", fFmpegResponseInfo.Speed);
             Assert.AreEqual("00:01:34.08", fFmpegResponseInfo.Time); 

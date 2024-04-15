@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegWrapperCore", "FFmpeg
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{37CA8B11-27EF-4A18-AA58-7B2B19695C41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegWrapperCore.Test", "FFmpegWrapperCore.Test\FFmpegWrapperCore.Test.csproj", "{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegWrapperCore.Test", "FFmpegWrapperCore.Test\FFmpegWrapperCore.Test.csproj", "{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{88324754-CE04-44DF-AD38-A558690C9928}"
 	ProjectSection(SolutionItems) = preProject
