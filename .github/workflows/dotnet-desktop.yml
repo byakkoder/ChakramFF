@@ -28,7 +28,7 @@ jobs:
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: ChakramFF
+        name: ChakramFFApp
         path: |
           ./out/**
 
@@ -40,13 +40,13 @@ jobs:
     - name: Download artifacts
       uses: actions/download-artifact@v3
       with:
-        name: ChakramFF
+        name: ChakramFFApp
 
     - name: Install zip
       run: sudo apt-get install zip
 
     - name: Zip the artifacts
-      run: zip -r ChakramFF.zip ./ChakramFF
+      run: zip -r ChakramFFApp.zip ./ChakramFFApp
 
     - name: Create Release
       id: create_release
@@ -66,6 +66,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./ChakramFF.zip
-        asset_name: ChakramFF.zip
+        asset_path: ./ChakramFFApp.zip
+        asset_name: ChakramFFApp.zip
         asset_content_type: application/zip
