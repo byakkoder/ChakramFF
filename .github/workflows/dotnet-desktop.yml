@@ -95,9 +95,8 @@ jobs:
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: ChakramFF.zip
-        path: |
-          ./out/**
+        name: ChakramFF
+        path: ./out/**
 
     - name: Create Release
       id: create_release
@@ -117,6 +116,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./out/ChakramFF.zip
-        asset_name: ChakramFF.zip
+        asset_path: ./out/ChakramFF
+        asset_name: ChakramFF
         asset_content_type: application/zip
