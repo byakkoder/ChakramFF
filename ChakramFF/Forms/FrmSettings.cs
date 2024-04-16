@@ -19,11 +19,9 @@
  For more details, see README.md.
  *********************************************************************************/
 
-using Bootstrapper;
-using Interfaces.FFmpegWrapperCore.ChakramSettings;
+using Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.ChakramSettings;
 using System;
 using System.Windows.Forms;
-using Unity;
 
 namespace ChakramFF
 {
@@ -40,30 +38,35 @@ namespace ChakramFF
 
         #region Constructor
 
-        public FrmSettings()
+        public FrmSettings(
+            IChakramSettingsSingleton chakramSettingsSingleton,
+            IFFmpegSettingsValidator fFmpegSettingsValidator,
+            ISaveSettingsManager saveSettingsManager,
+            ISettingsCleaner settingsCleaner
+            )
         {
             InitializeComponent();
+
+            _chakramSettingsSingleton = chakramSettingsSingleton;
+            _fFmpegSettingsValidator = fFmpegSettingsValidator;
+            _saveSettingsManager = saveSettingsManager;
+            _settingsCleaner = settingsCleaner;
         }
 
         #endregion
 
         #region Form Events
-        
+
         private void FrmSettings_Load(object sender, EventArgs e)
         {
-            _chakramSettingsSingleton = DIContainerManager.GetContainer().Resolve<IChakramSettingsSingleton>();
-            _fFmpegSettingsValidator = DIContainerManager.GetContainer().Resolve<IFFmpegSettingsValidator>();
-            _saveSettingsManager = DIContainerManager.GetContainer().Resolve<ISaveSettingsManager>();
-            _settingsCleaner = DIContainerManager.GetContainer().Resolve<ISettingsCleaner>();
-
             TxtFFmpegPath.Text = _chakramSettingsSingleton.ChakramSettings.FFmpegRootPath;
             FbdFFmpegPath.SelectedPath = TxtFFmpegPath.Text;
-        } 
+        }
 
         #endregion
 
         #region Control Events
-        
+
         private void BtnFFmpegPath_Click(object sender, EventArgs e)
         {
             if (FbdFFmpegPath.ShowDialog(this) == DialogResult.OK)

@@ -23,18 +23,20 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using Entities.Dto;
+using Byakkoder.ChakramFF.Entities.Dto;
 using System.IO;
-using Entities.MediaFileInfo;
+using Byakkoder.ChakramFF.Entities.MediaFileInfo;
 using ChakramFF.Helpers;
 using ChakramFF.Forms;
+using Byakkoder.ChakramFF.Bootstrapper;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ChakramFF.Controls
 {
     public partial class StreamItem : UserControl
     {
         #region Events
-        
+
         public event Action<StreamItem> OnUp;
         public event Action<StreamItem> OnDown;
         public event Action<StreamItem> OnDelete;
@@ -50,7 +52,7 @@ namespace ChakramFF.Controls
         #endregion
 
         #region Constructor
-        
+
         public StreamItem()
         {
             InitializeComponent();
@@ -59,7 +61,7 @@ namespace ChakramFF.Controls
         #endregion
 
         #region Public Methods
-        
+
         public StreamItemDto GetStreamInfo()
         {
             return _streamItemDto;
@@ -108,17 +110,18 @@ namespace ChakramFF.Controls
         {
             OnSelect?.Invoke(this);
 
-            PreviewStreamHelper.Show(_streamItemDto.MediaFormat.Filename, _streamItemDto.MediaStream.StreamType, Convert.ToInt32(_streamItemDto.MediaStream.Index));
+            PreviewStreamHelper previewStreamHelper = DIInitializer.ServiceProvider.GetRequiredService<PreviewStreamHelper>();
+            previewStreamHelper.Show(_streamItemDto.MediaFormat.Filename, _streamItemDto.MediaStream.StreamType, Convert.ToInt32(_streamItemDto.MediaStream.Index));
         }
 
         private void BtnSettings_Click(object sender, EventArgs e)
         {
             OnSelect?.Invoke(this);
 
-            FrmStreamSettings frmStreamSettings = new FrmStreamSettings();
+            FrmStreamSettings frmStreamSettings = DIInitializer.ServiceProvider.GetRequiredService<FrmStreamSettings>();
 
             frmStreamSettings.SetSettings(_streamItemDto.StreamSettings);
-            
+
             if (frmStreamSettings.ShowDialog() == DialogResult.OK)
             {
                 _streamItemDto.StreamSettings = frmStreamSettings.GetSettings();
@@ -157,7 +160,7 @@ namespace ChakramFF.Controls
         private void PanItemContainer_Click(object sender, EventArgs e)
         {
             OnSelect?.Invoke(this);
-        } 
+        }
 
         #endregion
     }

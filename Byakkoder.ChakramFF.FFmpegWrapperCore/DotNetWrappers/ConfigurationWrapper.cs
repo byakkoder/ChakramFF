@@ -20,8 +20,7 @@
  *********************************************************************************/
 
 using Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.DotNetWrappers;
-using Microsoft.Extensions.Configuration;
-using System.Configuration;
+using System.Reflection;
 
 namespace Byakkoder.ChakramFF.FFmpegWrapperCore.DotNetWrappers
 {
@@ -29,32 +28,39 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.DotNetWrappers
     {
         #region Fields
 
-        private readonly IConfiguration _configuration;
+        private readonly IFileWrapper _fileWrapper;
+        private string _settingsPath;
 
         #endregion
 
         #region Constructor
 
-        public ConfigurationWrapper()
+        public ConfigurationWrapper(
+            IFileWrapper fileWrapper)
         {
-            _configuration = new ConfigurationBuilder()
-                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .Build();
+            _settingsPath = Path.Combine(AppContext.BaseDirectory, "chakram-settings.json");
+            _fileWrapper = fileWrapper;
         }
 
         #endregion
 
         #region Public Methods
 
-        public string Load(string settingKey)
+        public string Load()
         {
-            return _configuration[$"AppSettings:{settingKey}"];
+            if (!_fileWrapper.Exists(_settingsPath))
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return _fileWrapper.ReadAllText(_settingsPath);
+            }
         }
 
-        public void Save(string settingKey, string settingValue)
+        public void Save(string content)
         {
-            _configuration[$"AppSettings:{settingKey}"] = settingValue;
+            _fileWrapper.WriteAllText(_settingsPath, content);
         }
 
         #endregion

@@ -23,7 +23,8 @@ namespace Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.DotNetWrappers
 {
     public interface IConfigurationWrapper
     {
-        string Load(string settingKey);
-        void Save(string settingName, string settingValue);
+        string Load();
+
+        void Save(string content);
     }
 }

@@ -19,14 +19,18 @@
  For more details, see README.md.
  *********************************************************************************/
 
+using System.Text.Json.Serialization;
+
 namespace Byakkoder.ChakramFF.Entities
 {
     public class LanguageInfo
     {
         #region Properties
-        
+
+        [JsonPropertyName("code")]
         public string Code { get; set; }
 
+        [JsonPropertyName("language")]
         public string Language { get; set; }
 
         public string FullLanguageDesc

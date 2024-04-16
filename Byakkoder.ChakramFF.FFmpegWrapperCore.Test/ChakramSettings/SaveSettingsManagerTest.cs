@@ -67,7 +67,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.ChakramSettings
 
             _chakramSettingsSingleton.Setup(x => x.ChakramSettings).Returns(chakramSettingsInfo);
             _serializationWrapper.Setup(x => x.Serialize(chakramSettingsInfo)).Returns(serializedSettings);
-            _configurationWrapper.Setup(x => x.Save(Constants.AppSettingsKey, serializedSettings));
+            _configurationWrapper.Setup(x => x.Save(serializedSettings));
 
             #endregion
 
@@ -83,7 +83,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.ChakramSettings
             _chakramSettingsSingleton.VerifyNoOtherCalls();
             _serializationWrapper.Verify(x => x.Serialize(chakramSettingsInfo), Times.Once);
             _serializationWrapper.VerifyNoOtherCalls();
-            _configurationWrapper.Verify(x => x.Save(Constants.AppSettingsKey, serializedSettings), Times.Once);
+            _configurationWrapper.Verify(x => x.Save(serializedSettings), Times.Once);
             _configurationWrapper.VerifyNoOtherCalls();
 
             #endregion
@@ -98,7 +98,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.ChakramSettings
             ChakramSettingsInfo chakramSettingsInfo = new ChakramSettingsInfo();
 
             _serializationWrapper.Setup(x => x.Serialize(chakramSettingsInfo)).Returns(serializedSettings);
-            _configurationWrapper.Setup(x => x.Save(Constants.AppSettingsKey, serializedSettings));
+            _configurationWrapper.Setup(x => x.Save(serializedSettings));
 
             #endregion
 
@@ -106,7 +106,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.ChakramSettings
 
             Assert.ThrowsException<ArgumentException>(() => _saveSettingsManager.Save());
             _serializationWrapper.Verify(x => x.Serialize(chakramSettingsInfo), Times.Never);
-            _configurationWrapper.Verify(x => x.Save(Constants.AppSettingsKey, serializedSettings), Times.Never);
+            _configurationWrapper.Verify(x => x.Save(serializedSettings), Times.Never);
 
             #endregion
         } 

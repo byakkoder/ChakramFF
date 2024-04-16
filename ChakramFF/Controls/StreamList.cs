@@ -25,8 +25,8 @@ using System.Linq;
 using System.Windows.Forms;
 using ChakramFF.Helpers;
 using ChakramFF.Mappers;
-using Entities.MediaFileInfo;
-using Entities.Dto;
+using Byakkoder.ChakramFF.Entities.MediaFileInfo;
+using Byakkoder.ChakramFF.Entities.Dto;
 
 namespace ChakramFF.Controls
 {
@@ -63,15 +63,15 @@ namespace ChakramFF.Controls
         public void AddStreams(MediaInfo mediaInfo)
         {
             bool hasDefaultVideoStream = _sortedStreamList.Any(stream => 
-                stream.GetStreamInfo().MediaStream.StreamType == Entities.StreamType.Video && 
+                stream.GetStreamInfo().MediaStream.StreamType == Byakkoder.ChakramFF.Entities.StreamType.Video && 
                 stream.GetStreamInfo().StreamSettings.Default);
 
             bool hasDefaultAudioStream = _sortedStreamList.Any(stream =>
-                stream.GetStreamInfo().MediaStream.StreamType == Entities.StreamType.Audio &&
+                stream.GetStreamInfo().MediaStream.StreamType == Byakkoder.ChakramFF.Entities.StreamType.Audio &&
                 stream.GetStreamInfo().StreamSettings.Default);
 
             bool hasDefaultSubtitleStream = _sortedStreamList.Any(stream =>
-                stream.GetStreamInfo().MediaStream.StreamType == Entities.StreamType.Subtitle &&
+                stream.GetStreamInfo().MediaStream.StreamType == Byakkoder.ChakramFF.Entities.StreamType.Subtitle &&
                 stream.GetStreamInfo().StreamSettings.Default);
 
             mediaInfo.Streams.ForEach(stream =>

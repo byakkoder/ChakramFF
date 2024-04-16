@@ -38,9 +38,24 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.DotNetWrappers
             return File.Exists(path);
         }
 
+        public void Create(string path)
+        {
+            File.Create(path);
+        }
+
         public void Delete(string path)
         {
             File.Delete(path);
+        }
+
+        public string ReadAllText(string path)
+        {
+            return File.ReadAllText(path);
+        }
+
+        public void WriteAllText(string path, string content)
+        {
+            File.WriteAllText(path, content);
         }
 
         #endregion

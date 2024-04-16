@@ -31,7 +31,7 @@ namespace Byakkoder.ChakramFF.Entities.MediaFileInfo.Serialization
 
         public override bool CanConvert(Type typeToConvert)
         {
-            return typeToConvert == typeof(long) || typeToConvert == typeof(long?);
+            return typeToConvert == typeof(long);
         }
 
         public override long Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

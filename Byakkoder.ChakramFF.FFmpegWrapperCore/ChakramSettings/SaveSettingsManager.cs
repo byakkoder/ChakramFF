@@ -61,7 +61,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.ChakramSettings
 
             string settings = _serializationWrapper.Serialize(_chakramSettingsSingleton.ChakramSettings);
 
-            _configurationWrapper.Save(Constants.AppSettingsKey, settings);
+            _configurationWrapper.Save(settings);
         } 
 
         #endregion

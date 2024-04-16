@@ -53,7 +53,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.ChakramSettings
         
         public ChakramSettingsInfo Load()
         {
-            string settings = _configurationWrapper.Load(Constants.AppSettingsKey);
+            string settings = _configurationWrapper.Load();
 
             if (string.IsNullOrWhiteSpace(settings))
             {

@@ -63,7 +63,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.ChakramSettings
 
             ChakramSettingsInfo expectedSettingsInfo = new ChakramSettingsInfo();
             string settingValue = "testValue";
-            _configurationWrapper.Setup(x => x.Load(Constants.AppSettingsKey)).Returns(settingValue);
+            _configurationWrapper.Setup(x => x.Load()).Returns(settingValue);
             _serializationWrapper.Setup(x => x.Deserialize<ChakramSettingsInfo>(settingValue)).Returns(expectedSettingsInfo);
             _chakramSettingsSingleton.Setup(x => x.ChakramSettings).Returns(expectedSettingsInfo);
 
@@ -78,7 +78,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.ChakramSettings
             #region Assert
 
             Assert.AreSame(expectedSettingsInfo, chakramSettingsInfo);
-            _configurationWrapper.Verify(x => x.Load(Constants.AppSettingsKey), Times.Once);
+            _configurationWrapper.Verify(x => x.Load(), Times.Once);
             _configurationWrapper.VerifyNoOtherCalls();
             _serializationWrapper.Verify(x => x.Deserialize<ChakramSettingsInfo>(settingValue), Times.Once);
             _serializationWrapper.VerifyNoOtherCalls();
@@ -109,7 +109,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.ChakramSettings
             #region Assert
 
             Assert.AreNotSame(expectedSettingsInfo, chakramSettingsInfo);
-            _configurationWrapper.Verify(x => x.Load(Constants.AppSettingsKey), Times.Once);
+            _configurationWrapper.Verify(x => x.Load(), Times.Once);
             _configurationWrapper.VerifyNoOtherCalls();
             _serializationWrapper.Verify(x => x.Deserialize<ChakramSettingsInfo>(settingValue), Times.Never);
             _serializationWrapper.VerifyNoOtherCalls();

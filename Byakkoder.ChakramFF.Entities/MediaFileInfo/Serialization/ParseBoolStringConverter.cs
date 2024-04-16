@@ -30,7 +30,7 @@ namespace Byakkoder.ChakramFF.Entities.MediaFileInfo.Serialization
 
         public override bool CanConvert(Type typeToConvert)
         {
-            return typeToConvert == typeof(bool) || typeToConvert == typeof(bool?);
+            return typeToConvert == typeof(bool);
         }
 
         public override bool Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

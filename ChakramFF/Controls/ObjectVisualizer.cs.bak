@@ -19,45 +19,45 @@
  For more details, see README.md.
  *********************************************************************************/
 
-using System;
-using System.Diagnostics;
-using System.Reflection;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace ChakramFF
 {
-    public partial class FrmAbout : ChakramFF.FrmBase
+    public partial class ObjectVisualizer : UserControl
     {
         #region Constructor
-
-        public FrmAbout()
+        
+        public ObjectVisualizer()
         {
             InitializeComponent();
         }
 
         #endregion
 
-        #region Form Events
-
-        private void FrmAbout_Load(object sender, EventArgs e)
+        #region Public Methods
+        
+        public void SetDataObject(object dataObject)
         {
-            AssemblyName currentAssemblyName = Assembly.GetExecutingAssembly().GetName();
-
-            int major = currentAssemblyName.Version.Major;
-            int minor = currentAssemblyName.Version.Minor;
-            int patch = currentAssemblyName.Version.Build;
-
-            RtbAbout.Text = RtbAbout.Text.Replace("{version}", $"{major}.{minor}.{patch} - Alpha");
+            List<PropertyInfo> properties = new List<PropertyInfo>(dataObject.GetType().GetProperties());
+            properties.ForEach(property => SetProperty(property, dataObject));
         }
 
         #endregion
 
-        #region Control Events
-
-        private void RtbAbout_LinkClicked(object sender, LinkClickedEventArgs e)
+        #region Private Methods
+        
+        private void SetProperty(PropertyInfo property, object dataObject)
         {
-            Process.Start(new ProcessStartInfo { FileName = e.LinkText, UseShellExecute = true });
-        }
+            PropertyVisualizer propertyVisualizer = new PropertyVisualizer();
+            object propertyValue = property.GetValue(dataObject);
+            string value = propertyValue != null ? propertyValue.ToString() : string.Empty;
+            propertyVisualizer.SetData(property.Name, value);
+            propertyVisualizer.Dock = DockStyle.Top;
+            this.Controls.Add(propertyVisualizer);
+            propertyVisualizer.BringToFront();
+        } 
 
         #endregion
     }

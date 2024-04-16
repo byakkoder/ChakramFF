@@ -25,6 +25,12 @@ namespace Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.DotNetWrappers
     {
         bool Exists(string path);
 
+        void Create(string path);
+
         void Delete(string path);
+
+        string ReadAllText(string path);
+
+        void WriteAllText(string path, string content);
     }
 }

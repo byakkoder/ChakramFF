@@ -2,12 +2,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegWrapperCore", "FFmpegWraperCore\FFmpegWrapperCore.csproj", "{5846085F-7080-4200-B39F-961FCB8E4F2D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{37CA8B11-27EF-4A18-AA58-7B2B19695C41}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegWrapperCore.Test", "FFmpegWrapperCore.Test\FFmpegWrapperCore.Test.csproj", "{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{88324754-CE04-44DF-AD38-A558690C9928}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE = LICENSE
@@ -17,19 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChakramFF", "ChakramFF\ChakramFF.csproj", "{A76B1791-D185-4DB5-A9AD-78AAAAFD99EF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\Interfaces.csproj", "{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootstrapper", "Bootstrapper\Bootstrapper.csproj", "{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Byakkoder.ChakramFF.Interfaces", "Byakkoder.ChakramFF.Interfaces\Byakkoder.ChakramFF.Interfaces.csproj", "{46187823-7E5D-4B7F-AE90-07EA7F4263F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Byakkoder.ChakramFF.Interfaces", "Byakkoder.ChakramFF.Interfaces\Byakkoder.ChakramFF.Interfaces.csproj", "{46187823-7E5D-4B7F-AE90-07EA7F4263F2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Byakkoder.ChakramFF.Entities", "Byakkoder.ChakramFF.Entities\Byakkoder.ChakramFF.Entities.csproj", "{8DB0D7D3-DC23-48D2-811D-A55991D8551F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Byakkoder.ChakramFF.FFmpegWrapperCore", "Byakkoder.ChakramFF.FFmpegWrapperCore\Byakkoder.ChakramFF.FFmpegWrapperCore.csproj", "{C4C7DE75-0B0D-42BC-A52D-0871340EB0BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Byakkoder.ChakramFF.FFmpegWrapperCore.Test", "Byakkoder.ChakramFF.FFmpegWrapperCore.Test\Byakkoder.ChakramFF.FFmpegWrapperCore.Test.csproj", "{204DFEAD-1694-421E-B3A9-E7883C4D729E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Byakkoder.ChakramFF.FFmpegWrapperCore.Test", "Byakkoder.ChakramFF.FFmpegWrapperCore.Test\Byakkoder.ChakramFF.FFmpegWrapperCore.Test.csproj", "{204DFEAD-1694-421E-B3A9-E7883C4D729E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Byakkoder.ChakramFF.Bootstrapper", "Byakkoder.ChakramFF.Bootstrapper\Byakkoder.ChakramFF.Bootstrapper.csproj", "{8CE351C8-D0DA-47AD-B756-4B0624EFB77B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Byakkoder.ChakramFF.Bootstrapper", "Byakkoder.ChakramFF.Bootstrapper\Byakkoder.ChakramFF.Bootstrapper.csproj", "{8CE351C8-D0DA-47AD-B756-4B0624EFB77B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,42 +31,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5846085F-7080-4200-B39F-961FCB8E4F2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5846085F-7080-4200-B39F-961FCB8E4F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5846085F-7080-4200-B39F-961FCB8E4F2D}.Debug|x64.ActiveCfg = Debug|x64
-		{5846085F-7080-4200-B39F-961FCB8E4F2D}.Debug|x64.Build.0 = Debug|x64
-		{5846085F-7080-4200-B39F-961FCB8E4F2D}.Debug|x86.ActiveCfg = Debug|x86
-		{5846085F-7080-4200-B39F-961FCB8E4F2D}.Debug|x86.Build.0 = Debug|x86
-		{5846085F-7080-4200-B39F-961FCB8E4F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5846085F-7080-4200-B39F-961FCB8E4F2D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5846085F-7080-4200-B39F-961FCB8E4F2D}.Release|x64.ActiveCfg = Release|x64
-		{5846085F-7080-4200-B39F-961FCB8E4F2D}.Release|x64.Build.0 = Release|x64
-		{5846085F-7080-4200-B39F-961FCB8E4F2D}.Release|x86.ActiveCfg = Release|x86
-		{5846085F-7080-4200-B39F-961FCB8E4F2D}.Release|x86.Build.0 = Release|x86
-		{37CA8B11-27EF-4A18-AA58-7B2B19695C41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37CA8B11-27EF-4A18-AA58-7B2B19695C41}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37CA8B11-27EF-4A18-AA58-7B2B19695C41}.Debug|x64.ActiveCfg = Debug|x64
-		{37CA8B11-27EF-4A18-AA58-7B2B19695C41}.Debug|x64.Build.0 = Debug|x64
-		{37CA8B11-27EF-4A18-AA58-7B2B19695C41}.Debug|x86.ActiveCfg = Debug|x86
-		{37CA8B11-27EF-4A18-AA58-7B2B19695C41}.Debug|x86.Build.0 = Debug|x86
-		{37CA8B11-27EF-4A18-AA58-7B2B19695C41}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37CA8B11-27EF-4A18-AA58-7B2B19695C41}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37CA8B11-27EF-4A18-AA58-7B2B19695C41}.Release|x64.ActiveCfg = Release|x64
-		{37CA8B11-27EF-4A18-AA58-7B2B19695C41}.Release|x64.Build.0 = Release|x64
-		{37CA8B11-27EF-4A18-AA58-7B2B19695C41}.Release|x86.ActiveCfg = Release|x86
-		{37CA8B11-27EF-4A18-AA58-7B2B19695C41}.Release|x86.Build.0 = Release|x86
-		{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}.Debug|x64.ActiveCfg = Debug|x64
-		{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}.Debug|x64.Build.0 = Debug|x64
-		{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}.Debug|x86.ActiveCfg = Debug|x86
-		{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}.Debug|x86.Build.0 = Debug|x86
-		{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}.Release|x64.ActiveCfg = Release|x64
-		{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}.Release|x64.Build.0 = Release|x64
-		{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}.Release|x86.ActiveCfg = Release|x86
-		{FDB0AE76-879E-4A35-BB85-C9A1460E3FB6}.Release|x86.Build.0 = Release|x86
 		{A76B1791-D185-4DB5-A9AD-78AAAAFD99EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A76B1791-D185-4DB5-A9AD-78AAAAFD99EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A76B1791-D185-4DB5-A9AD-78AAAAFD99EF}.Debug|x64.ActiveCfg = Debug|x64
@@ -89,30 +43,6 @@ Global
 		{A76B1791-D185-4DB5-A9AD-78AAAAFD99EF}.Release|x64.Build.0 = Release|x64
 		{A76B1791-D185-4DB5-A9AD-78AAAAFD99EF}.Release|x86.ActiveCfg = Release|x86
 		{A76B1791-D185-4DB5-A9AD-78AAAAFD99EF}.Release|x86.Build.0 = Release|x86
-		{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}.Debug|x64.ActiveCfg = Debug|x64
-		{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}.Debug|x64.Build.0 = Debug|x64
-		{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}.Debug|x86.ActiveCfg = Debug|x86
-		{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}.Debug|x86.Build.0 = Debug|x86
-		{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}.Release|x64.ActiveCfg = Release|x64
-		{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}.Release|x64.Build.0 = Release|x64
-		{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}.Release|x86.ActiveCfg = Release|x86
-		{3AF660A9-D2A5-4245-ABAC-6B1ED270EEA7}.Release|x86.Build.0 = Release|x86
-		{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}.Debug|x64.ActiveCfg = Debug|x64
-		{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}.Debug|x64.Build.0 = Debug|x64
-		{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}.Debug|x86.ActiveCfg = Debug|x86
-		{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}.Debug|x86.Build.0 = Debug|x86
-		{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}.Release|x64.ActiveCfg = Release|x64
-		{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}.Release|x64.Build.0 = Release|x64
-		{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}.Release|x86.ActiveCfg = Release|x86
-		{35B8C73D-1C64-4326-B8B0-60EDD5A405B4}.Release|x86.Build.0 = Release|x86
 		{46187823-7E5D-4B7F-AE90-07EA7F4263F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{46187823-7E5D-4B7F-AE90-07EA7F4263F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46187823-7E5D-4B7F-AE90-07EA7F4263F2}.Debug|x64.ActiveCfg = Debug|Any CPU
