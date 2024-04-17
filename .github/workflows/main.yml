@@ -23,7 +23,7 @@ jobs:
       run: dotnet build --configuration Release --output ./build_output
 
     - name: Run unit tests
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --verbosity normal
 
     - name: Get assembly version
       run: |
