@@ -50,79 +50,74 @@ namespace ChakramFF
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbout));
-            this.PicAppLogo = new System.Windows.Forms.PictureBox();
-            this.BtnOk = new System.Windows.Forms.Button();
-            this.RtbAbout = new System.Windows.Forms.RichTextBox();
-            this.PanMainContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicAppLogo)).BeginInit();
-            this.SuspendLayout();
+            PicAppLogo = new System.Windows.Forms.PictureBox();
+            BtnOk = new System.Windows.Forms.Button();
+            RtbAbout = new System.Windows.Forms.RichTextBox();
+            PanMainContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PicAppLogo).BeginInit();
+            SuspendLayout();
             // 
             // PanMainContainer
             // 
-            this.PanMainContainer.Controls.Add(this.RtbAbout);
-            this.PanMainContainer.Controls.Add(this.BtnOk);
-            this.PanMainContainer.Controls.Add(this.PicAppLogo);
-            this.PanMainContainer.Size = new System.Drawing.Size(706, 537);
+            PanMainContainer.Controls.Add(RtbAbout);
+            PanMainContainer.Controls.Add(BtnOk);
+            PanMainContainer.Controls.Add(PicAppLogo);
+            PanMainContainer.Size = new System.Drawing.Size(618, 503);
             // 
             // PicAppLogo
             // 
-            this.PicAppLogo.Image = global::ChakramFF.Properties.Resources.LogoApp;
-            this.PicAppLogo.Location = new System.Drawing.Point(49, 31);
-            this.PicAppLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PicAppLogo.Name = "PicAppLogo";
-            this.PicAppLogo.Size = new System.Drawing.Size(604, 131);
-            this.PicAppLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PicAppLogo.TabIndex = 9;
-            this.PicAppLogo.TabStop = false;
+            PicAppLogo.Image = Properties.Resources.LogoApp;
+            PicAppLogo.Location = new System.Drawing.Point(43, 29);
+            PicAppLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            PicAppLogo.Name = "PicAppLogo";
+            PicAppLogo.Size = new System.Drawing.Size(528, 123);
+            PicAppLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            PicAppLogo.TabIndex = 9;
+            PicAppLogo.TabStop = false;
             // 
             // BtnOk
             // 
-            this.BtnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnOk.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.BtnOk.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BtnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnOk.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnOk.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.BtnOk.Location = new System.Drawing.Point(569, 465);
-            this.BtnOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnOk.Name = "BtnOk";
-            this.BtnOk.Size = new System.Drawing.Size(83, 39);
-            this.BtnOk.TabIndex = 15;
-            this.BtnOk.Text = "OK";
-            this.BtnOk.UseVisualStyleBackColor = false;
+            BtnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            BtnOk.BackColor = System.Drawing.Color.DarkSlateBlue;
+            BtnOk.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            BtnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            BtnOk.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            BtnOk.ForeColor = System.Drawing.Color.LightSteelBlue;
+            BtnOk.Location = new System.Drawing.Point(498, 454);
+            BtnOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            BtnOk.Name = "BtnOk";
+            BtnOk.Size = new System.Drawing.Size(73, 37);
+            BtnOk.TabIndex = 15;
+            BtnOk.Text = "OK";
+            BtnOk.UseVisualStyleBackColor = false;
             // 
             // RtbAbout
             // 
-            this.RtbAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.RtbAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
-            this.RtbAbout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RtbAbout.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.RtbAbout.ForeColor = System.Drawing.Color.White;
-            this.RtbAbout.Location = new System.Drawing.Point(49, 175);
-            this.RtbAbout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.RtbAbout.Name = "RtbAbout";
-            this.RtbAbout.ReadOnly = true;
-            this.RtbAbout.Size = new System.Drawing.Size(603, 299);
-            this.RtbAbout.TabIndex = 18;
-            this.RtbAbout.Text = resources.GetString("RtbAbout.Text");
-            this.RtbAbout.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RtbAbout_LinkClicked);
+            RtbAbout.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            RtbAbout.BackColor = System.Drawing.Color.FromArgb(23, 30, 36);
+            RtbAbout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            RtbAbout.Font = new System.Drawing.Font("Segoe UI", 9F);
+            RtbAbout.ForeColor = System.Drawing.Color.White;
+            RtbAbout.Location = new System.Drawing.Point(43, 164);
+            RtbAbout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            RtbAbout.Name = "RtbAbout";
+            RtbAbout.ReadOnly = true;
+            RtbAbout.Size = new System.Drawing.Size(529, 281);
+            RtbAbout.TabIndex = 18;
+            RtbAbout.Text = resources.GetString("RtbAbout.Text");
+            RtbAbout.LinkClicked += RtbAbout_LinkClicked;
             // 
             // FrmAbout
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.CancelButton = this.BtnOk;
-            this.ClientSize = new System.Drawing.Size(724, 598);
-            this.FormTitle = "About ChakramFF";
-            this.MaximizeBox = true;
-            this.MinimizeBox = true;
-            this.Name = "FrmAbout";
-            this.Load += new System.EventHandler(this.FrmAbout_Load);
-            this.PanMainContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PicAppLogo)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            CancelButton = BtnOk;
+            ClientSize = new System.Drawing.Size(634, 561);
+            FormTitle = "About ChakramFF";
+            Name = "FrmAbout";
+            Load += FrmAbout_Load;
+            PanMainContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)PicAppLogo).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion

@@ -19,7 +19,7 @@
  For more details, see README.md.
  *********************************************************************************/
 
-using Entities.MediaFileInfo;
+using Byakkoder.ChakramFF.Entities.MediaFileInfo;
 using System;
 
 namespace ChakramFF.Helpers

@@ -19,21 +19,35 @@
  For more details, see README.md.
  *********************************************************************************/
 
-using Bootstrapper;
-using Entities;
-using Entities.FFmpegArgs;
-using Interfaces.FFmpegWrapperCore.MediaPlayer;
-using Unity;
+using Byakkoder.ChakramFF.Bootstrapper;
+using Byakkoder.ChakramFF.Entities;
+using Byakkoder.ChakramFF.Entities.FFmpegArgs;
+using Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.MediaPlayer;
 
 namespace ChakramFF.Helpers
 {
-    public static class PreviewStreamHelper
+    public class PreviewStreamHelper
     {
-        #region Public Methods
-        
-        public static void Show(string filePath, StreamType streamType, int streamIndex)
+        #region Fields
+
+        private readonly IPlayer _player;
+
+        #endregion
+
+        #region Constructor
+
+        public PreviewStreamHelper(IPlayer player)
         {
-            IPlayer _player = DIContainerManager.GetContainer().Resolve<IPlayer>();
+            _player = player;
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        public void Show(string filePath, StreamType streamType, int streamIndex)
+        {
+            IPlayer _player = (IPlayer)DIInitializer.ServiceProvider.GetService(typeof(IPlayer));
 
             PlayerArgs playerArgs = new PlayerArgs
             {
@@ -46,7 +60,7 @@ namespace ChakramFF.Helpers
             };
 
             _player.Play(playerArgs);
-        } 
+        }
 
         #endregion
     }

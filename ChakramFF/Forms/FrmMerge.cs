@@ -19,28 +19,26 @@
  For more details, see README.md.
  *********************************************************************************/
 
-using Bootstrapper;
 using ChakramFF.Mappers;
 using ChakramFF.Properties;
-using Entities.Dto;
-using Entities.FFmpegArgs;
-using Interfaces.FFmpegWrapperCore.Conversion;
-using Interfaces.FFmpegWrapperCore.Helpers;
-using Interfaces.FFmpegWrapperCore.MediaMetadata;
+using Byakkoder.ChakramFF.Entities.Dto;
+using Byakkoder.ChakramFF.Entities.FFmpegArgs;
+using Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.Conversion;
+using Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.Helpers;
+using Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.MediaMetadata;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Unity;
 
 namespace ChakramFF.Forms
 {
     public partial class FrmMerge : Form
     {
         #region Fields
-        
+
         private IMerger _merger;
         private IVideoInfoHelper _infoHelper;
         private IMediaInfoBuilder _mediaInfoBuilder;
@@ -51,22 +49,30 @@ namespace ChakramFF.Forms
 
         #region Constructor
 
-        public FrmMerge()
+        public FrmMerge(
+            IMerger merger,
+            IVideoInfoHelper infoHelper,
+            IMediaInfoBuilder mediaInfoBuilder
+            )
         {
             InitializeComponent();
+
+            _merger = merger;
+            _infoHelper = infoHelper;
+            _mediaInfoBuilder = mediaInfoBuilder;
         }
 
         #endregion
 
         #region Public Methods
-        
+
         public void Abort()
         {
             if (BtnAbort.Enabled)
             {
                 BtnAbort.PerformClick();
             }
-        } 
+        }
 
         #endregion
 
@@ -82,7 +88,7 @@ namespace ChakramFF.Forms
         #endregion
 
         #region Control Events
-        
+
         private void BtnAddStreams_Click(object sender, EventArgs e)
         {
             if (OfdAddStreams.ShowDialog(this) != DialogResult.OK)
@@ -158,7 +164,7 @@ namespace ChakramFF.Forms
 
         private void BtnPlayTarget_Click(object sender, EventArgs e)
         {
-            Process.Start(TxtTarget.Text);
+            Process.Start(new ProcessStartInfo { FileName = TxtTarget.Text, UseShellExecute = true });
         }
 
         private void BtnAbort_Click(object sender, EventArgs e)
@@ -209,11 +215,7 @@ namespace ChakramFF.Forms
 
                 if (MessageBox.Show("¿Do you want to play the generated video?", "Done!", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    Process process = new Process();
-
-                    process.StartInfo.UseShellExecute = true;
-                    process.StartInfo.FileName = TxtTarget.Text;
-                    process.Start();
+                    Process.Start(new ProcessStartInfo { FileName = TxtTarget.Text, UseShellExecute = true });
                 }
 
                 _targetMediaInfoModel = _mediaInfoBuilder.BuildMediaInfo(new FileInfoArg { FilePath = TxtTarget.Text });
@@ -252,10 +254,6 @@ namespace ChakramFF.Forms
 
         private void InitializeServices()
         {
-            _mediaInfoBuilder = DIContainerManager.GetContainer().Resolve<IMediaInfoBuilder>();
-            _infoHelper = DIContainerManager.GetContainer().Resolve<IVideoInfoHelper>();
-            _merger = DIContainerManager.GetContainer().Resolve<IMerger>();
-
             _merger.OnDataReceived += Merger_OnDataReceived;
             _merger.OnErrorReceived += Merger_OnErrorReceived;
             _merger.OnProgress += Merger_OnProgress;

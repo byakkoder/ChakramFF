@@ -19,8 +19,8 @@
  For more details, see README.md.
  *********************************************************************************/
 
-using Entities.FFmpegArgs;
-using Entities.Dto;
+using Byakkoder.ChakramFF.Entities.FFmpegArgs;
+using Byakkoder.ChakramFF.Entities.Dto;
 
 namespace ChakramFF.Mappers
 {

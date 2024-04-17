@@ -19,22 +19,22 @@
  For more details, see README.md.
  *********************************************************************************/
 
-using Bootstrapper;
+using Byakkoder.ChakramFF.Bootstrapper;
 using ChakramFF.Helpers;
-using Entities;
-using Entities.Dto;
-using Interfaces.FFmpegWrapperCore.Helpers;
+using Byakkoder.ChakramFF.Entities;
+using Byakkoder.ChakramFF.Entities.Dto;
+using Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.Helpers;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Diagnostics;
 using System.Linq;
-using Unity;
 
 namespace ChakramFF.Forms
 {
     public partial class FrmStreamSettings : ChakramFF.FrmBase
     {
         #region Fields
-        
+
         private StreamSettingsDto _streamSettings;
         private ILanguageHelper _languageHelper;
         private bool _isInitialized;
@@ -42,16 +42,20 @@ namespace ChakramFF.Forms
         #endregion
 
         #region Constructor
-        
-        public FrmStreamSettings()
+
+        public FrmStreamSettings(
+            ILanguageHelper languageHelper
+            )
         {
             InitializeComponent();
+
+            _languageHelper = languageHelper;
         }
 
         #endregion
 
         #region Public Methods
-        
+
         public void SetSettings(StreamSettingsDto streamSettings)
         {
             if (!_isInitialized)
@@ -106,7 +110,7 @@ namespace ChakramFF.Forms
         #endregion
 
         #region Control Events
-        
+
         private void ChkDefault_CheckedChanged(object sender, EventArgs e)
         {
             ChkDefault.Text = ChkDefault.Checked ? "Yes" : "No";
@@ -114,13 +118,14 @@ namespace ChakramFF.Forms
 
         private void BtnPlayStream_Click(object sender, EventArgs e)
         {
-            PreviewStreamHelper.Show(_streamSettings.FileName, _streamSettings.StreamType, _streamSettings.StreamIndex);
+            PreviewStreamHelper previewStreamHelper = DIInitializer.ServiceProvider.GetRequiredService<PreviewStreamHelper>();
+            previewStreamHelper.Show(_streamSettings.FileName, _streamSettings.StreamType, _streamSettings.StreamIndex);
         }
 
         private void BtnPlayFile_Click(object sender, EventArgs e)
         {
-            Process.Start(TxtSourceFile.Text);
-        } 
+            Process.Start(new ProcessStartInfo { FileName = TxtSourceFile.Text, UseShellExecute = true });
+        }
 
         #endregion
 
@@ -133,9 +138,8 @@ namespace ChakramFF.Forms
                 return;
             }
 
-            _languageHelper = DIContainerManager.GetContainer().Resolve<ILanguageHelper>();
-
-            CboLanguage.DataSource = _languageHelper.GetLanguages();
+            var data = _languageHelper.GetLanguages();
+            CboLanguage.DataSource = data;
             CboLanguage.DisplayMember = "FullLanguageDesc";
             CboLanguage.ValueMember = "Code";
 

@@ -19,8 +19,8 @@
  For more details, see README.md.
  *********************************************************************************/
 
-using Entities;
-using Entities.Dto;
+using Byakkoder.ChakramFF.Entities;
+using Byakkoder.ChakramFF.Entities.Dto;
 using System;
 using System.Collections.Generic;
 

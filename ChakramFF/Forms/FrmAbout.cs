@@ -29,7 +29,7 @@ namespace ChakramFF
     public partial class FrmAbout : ChakramFF.FrmBase
     {
         #region Constructor
-        
+
         public FrmAbout()
         {
             InitializeComponent();
@@ -56,7 +56,7 @@ namespace ChakramFF
 
         private void RtbAbout_LinkClicked(object sender, LinkClickedEventArgs e)
         {
-            Process.Start(e.LinkText);
+            Process.Start(new ProcessStartInfo { FileName = e.LinkText, UseShellExecute = true });
         }
 
         #endregion

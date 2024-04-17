@@ -20,7 +20,7 @@
  *********************************************************************************/
 
 using System.Windows.Forms;
-using Entities.MediaFileInfo;
+using Byakkoder.ChakramFF.Entities.MediaFileInfo;
 
 namespace ChakramFF
 {

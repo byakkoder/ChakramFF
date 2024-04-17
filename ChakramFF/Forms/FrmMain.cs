@@ -19,13 +19,13 @@
  For more details, see README.md.
  *********************************************************************************/
 
-using Bootstrapper;
+using Byakkoder.ChakramFF.Bootstrapper;
 using ChakramFF.Forms;
-using Interfaces.FFmpegWrapperCore.ChakramSettings;
+using Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.ChakramSettings;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Unity;
 
 namespace ChakramFF
 {
@@ -33,6 +33,7 @@ namespace ChakramFF
     {
         #region Fields
 
+        private ILoadSettingsManager _loadSettingsManager;
         private IFFmpegSettingsValidator _fFmpegSettingsValidator;
         private FrmSettings _frmSettings;
         private FrmMerge _frmMerge;
@@ -41,10 +42,17 @@ namespace ChakramFF
         #endregion
 
         #region Constructor
-        
-        public FrmMain()
+
+        public FrmMain(
+            ILoadSettingsManager loadSettingsManager,
+            IFFmpegSettingsValidator fFmpegSettingsValidator)
         {
             InitializeComponent();
+
+            _loadSettingsManager = loadSettingsManager;
+            _loadSettingsManager.Load();
+
+            _fFmpegSettingsValidator = fFmpegSettingsValidator;
         }
 
         #endregion
@@ -68,12 +76,11 @@ namespace ChakramFF
         #endregion
 
         #region Form Events
-        
+
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            _fFmpegSettingsValidator = DIContainerManager.GetContainer().Resolve<IFFmpegSettingsValidator>();
-            _frmMerge = new FrmMerge();
-            _frmSettings = new FrmSettings();
+            _frmMerge = DIInitializer.ServiceProvider.GetRequiredService<FrmMerge>();
+            _frmSettings = DIInitializer.ServiceProvider.GetRequiredService<FrmSettings>();
 
             ConfigureChildForm(_frmMerge);
             ConfigureChildForm(_frmSettings);
@@ -121,7 +128,7 @@ namespace ChakramFF
         {
             FrmAbout frmAbout = new FrmAbout();
             frmAbout.ShowDialog(this);
-        } 
+        }
 
         #endregion
 
@@ -185,7 +192,7 @@ namespace ChakramFF
             }
 
             BtnSettings.PerformClick();
-            MessageBox.Show("FFmpeg path is not valid or not found. You must set FFmpeg path to use ChakramFF.", "FFmpeg path missing", MessageBoxButtons.OK, MessageBoxIcon.Information);            
+            MessageBox.Show("FFmpeg path is not valid or not found. You must set FFmpeg path to use ChakramFF.", "FFmpeg path missing", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             return false;
         }
