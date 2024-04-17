@@ -1,11 +1,10 @@
-name: Build and Release .NET Application
+name: ChakramFF Build and Test (Main)
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch:
 
 jobs:
   build-and-package:
@@ -23,28 +22,24 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Build project
-      run: dotnet build --configuration Release --no-dependencies --output ./build_output
-
-    - name: Publish project
-      run: dotnet publish YourProjectName.csproj -c Release -o ./publish_output --no-build
-      shell: powershell
+      run: dotnet build --configuration Release --output ./build_output
 
     - name: Get version of the assembly
       id: set_version
       run: |
-        $path = "./publish_output/ChakramFF.exe"
+        $path = "./build_output/ChakramFF.exe"
         $assemblyInfo = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($path)
         $productVersion = $assemblyInfo.ProductVersion
         echo "ProductVersion=$productVersion"
         echo "::set-output name=assembly_version::$productVersion"
       shell: powershell
 
+    - name: Compress build output
+      run: Compress-Archive -Path ./build_output/* -DestinationPath ./build_output/ChakramFF-alpha.zip
+      shell: powershell
+
     - name: Run unit tests
       run: dotnet test --verbosity normal
-
-    - name: Compress build output
-      run: Compress-Archive -Path ./publish_output/* -DestinationPath ./build_output/ChakramFF-alpha.zip
-      shell: powershell
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v3
@@ -68,15 +63,6 @@ jobs:
       run: echo "::set-output name=timestamp::$(date +'%Y%m%d%H%M%S')"
       shell: bash
 
-    - name: Generate release notes
-      id: generate_notes
-      run: |
-        echo "Release Notes:" > release-notes.md
-        git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"* %s" >> release-notes.md
-        release_notes=$(cat release-notes.md)
-        echo "::set-output name=notes::$release_notes"
-      shell: bash
-
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -85,7 +71,6 @@ jobs:
       with:
         tag_name: release-${{ needs.build-and-package.outputs.assembly_version }}.${{ steps.tag.outputs.timestamp }}-Alpha
         release_name: Release ChakramFF (${{ needs.build-and-package.outputs.assembly_version }}.${{ steps.tag.outputs.timestamp }}-Alpha) at ${{ steps.tag.outputs.timestamp }}
-        body: ${{ steps.generate_notes.outputs.notes }}
         draft: false
         prerelease: false
 
