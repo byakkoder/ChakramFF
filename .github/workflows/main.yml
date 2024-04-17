@@ -22,12 +22,26 @@ jobs:
     - name: Build project
       run: dotnet build --configuration Release --output ./build_output
 
+    - name: Run unit tests
+      run: dotnet test --no-build --verbosity normal
+
     - name: Get assembly version
       run: |
         $exePath = Join-Path $env:GITHUB_WORKSPACE "build_output/ChakramFF.exe"
-        $Version = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($exePath).ProductVersion
-        echo "AssemblyVersion=$Version" >> $GITHUB_ENV
+        if (Test-Path $exePath) {
+          $Version = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($exePath).ProductVersion
+          echo "AssemblyVersion=$Version" >> $GITHUB_ENV
+        } else {
+          echo "ERROR: EXE file does not exist at $exePath"
+          exit 1
+        }
       shell: powershell
+
+    - name: Print assembly version
+      run: echo "Captured AssemblyVersion $AssemblyVersion"
+      shell: bash
+      env:
+        AssemblyVersion: ${{ env.AssemblyVersion }}
 
     - name: Compress build output
       run: Compress-Archive -Path ./build_output/* -DestinationPath ./build_output/ChakramFF-alpha.zip
