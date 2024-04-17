@@ -27,6 +27,7 @@ jobs:
         $path = "./build_output/ChakramFF.exe"
         $assembly = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($path)
         Write-Host "The version of the assembly is:" $assembly.ProductVersion
+        echo "ASSEMBLY_VERSION=$assembly.ProductVersion" >> $GITHUB_ENV
       shell: powershell
 
     - name: Run unit tests
@@ -41,6 +42,10 @@ jobs:
       with:
         name: ChakramFF-alpha.zip
         path: ./build_output/ChakramFF-alpha.zip
+
+    - name: Set output
+      run: echo "assembly_version=${{ env.ASSEMBLY_VERSION }}" >> $GITHUB_ENV
+      shell: bash
 
   release:
     needs: build-and-package
@@ -64,8 +69,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: release-1.0.7.${{ steps.tag.outputs.timestamp }}-Alpha
-        release_name: Release ChakramFF (1.0.7.${{ steps.tag.outputs.timestamp }}-Alpha) at ${{ steps.tag.outputs.timestamp }}
+        tag_name: release-${{ needs.build-and-package.outputs.assembly_version }}.${{ steps.tag.outputs.timestamp }}-Alpha
+        release_name: Release ChakramFF (${{ needs.build-and-package.outputs.assembly_version }}.${{ steps.tag.outputs.timestamp }}-Alpha) at ${{ steps.tag.outputs.timestamp }}
         draft: false
         prerelease: false
 
