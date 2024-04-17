@@ -22,26 +22,15 @@ jobs:
     - name: Build project
       run: dotnet build --configuration Release --output ./build_output
 
-    - name: Run unit tests
-      run: dotnet test --verbosity normal
-
-    - name: Get assembly version
+    - name: Get version of the assembly
       run: |
-        $exePath = Join-Path $env:GITHUB_WORKSPACE "build_output/ChakramFF.exe"
-        if (Test-Path $exePath) {
-          $Version = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($exePath).ProductVersion
-          echo "AssemblyVersion=$Version" >> $GITHUB_ENV
-        } else {
-          echo "ERROR: EXE file does not exist at $exePath"
-          exit 1
-        }
+        $path = "./build_output/YourApplication.exe"
+        $assembly = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($path)
+        Write-Host "The version of the assembly is:" $assembly.ProductVersion
       shell: powershell
 
-    - name: Print assembly version
-      run: echo "Captured AssemblyVersion $AssemblyVersion"
-      shell: bash
-      env:
-        AssemblyVersion: ${{ env.AssemblyVersion }}
+    - name: Run unit tests
+      run: dotnet test --verbosity normal
 
     - name: Compress build output
       run: Compress-Archive -Path ./build_output/* -DestinationPath ./build_output/ChakramFF-alpha.zip
@@ -75,8 +64,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: release-${{ env.AssemblyVersion }}.${{ steps.tag.outputs.timestamp }}-Alpha
-        release_name: Release ChakramFF (${{ env.AssemblyVersion }}-Alpha) at ${{ steps.tag.outputs.timestamp }}
+        tag_name: release-1.0.7.${{ steps.tag.outputs.timestamp }}-Alpha
+        release_name: Release ChakramFF (1.0.7.${{ steps.tag.outputs.timestamp }}-Alpha) at ${{ steps.tag.outputs.timestamp }}
         draft: false
         prerelease: false
 
