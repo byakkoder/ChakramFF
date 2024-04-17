@@ -22,6 +22,12 @@ jobs:
     - name: Build project
       run: dotnet build --configuration Release --output ./build_output
 
+    - name: Get assembly version
+      run: |
+        $Version = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("$(System.Environment.GetEnvironmentVariable('GITHUB_WORKSPACE'))/build_output/ChakramFF.exe").ProductVersion
+        echo "AssemblyVersion=$Version" >> $GITHUB_ENV
+      shell: powershell
+
     - name: Compress build output
       run: Compress-Archive -Path ./build_output/* -DestinationPath ./build_output/ChakramFF-alpha.zip
       shell: powershell
@@ -54,8 +60,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: release-${{ steps.tag.outputs.timestamp }}
-        release_name: Release ChakramFF (Alpha) at ${{ steps.tag.outputs.timestamp }}
+        tag_name: release-${{ env.AssemblyVersion }}.${{ steps.tag.outputs.timestamp }}-Alpha
+        release_name: Release ChakramFF (${{ env.AssemblyVersion }}-Alpha) at ${{ steps.tag.outputs.timestamp }}
         draft: false
         prerelease: false
 
