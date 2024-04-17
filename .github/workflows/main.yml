@@ -1,4 +1,4 @@
-name: Build and Release .NET Application
+name: Prod Pipeline ChakramFF
 
 on:
   push:
