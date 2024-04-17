@@ -24,7 +24,7 @@ jobs:
 
     - name: Get version of the assembly
       run: |
-        $path = "./build_output/YourApplication.exe"
+        $path = "./build_output/ChakramFF.exe"
         $assembly = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($path)
         Write-Host "The version of the assembly is:" $assembly.ProductVersion
       shell: powershell
