@@ -43,14 +43,19 @@ jobs:
         name: windows-forms-app.zip
         path: ./build_output
 
+    - name: Generate tag with timestamp
+      id: tag
+      run: echo "::set-output name=timestamp::$(date +'%Y%m%d%H%M%S')"
+      shell: bash
+
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref_name }}
-        release_name: Release ${{ github.sha }}
+        tag_name: release-${{ steps.tag.outputs.timestamp }}
+        release_name: Release ${{ github.sha }} at ${{ steps.tag.outputs.timestamp }}
         draft: false
         prerelease: false
 
