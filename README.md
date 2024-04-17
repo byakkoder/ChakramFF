@@ -1,8 +1,10 @@
 # ChakramFF
 
+[![Prod Pipeline ChakramFF](https://github.com/byakkoder/ChakramFF/actions/workflows/main.yml/badge.svg)](https://github.com/byakkoder/ChakramFF/actions/workflows/main.yml)
+
 ChakramFF is a GUI software client for FFmpeg    
 
-Copyright (C) 2021-present John García
+Copyright (C) 2021-present John GarcÃ­a
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
