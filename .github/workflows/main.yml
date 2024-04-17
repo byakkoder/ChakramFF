@@ -22,7 +22,7 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Build project
-      run: dotnet build --configuration Release --output ./build_output
+      run: dotnet build ./ChakramFF/ChakramFF.csproj --configuration Release --output ./build_output
 
     - name: Get version of the assembly
       id: set_version
@@ -34,12 +34,12 @@ jobs:
         echo "::set-output name=assembly_version::$productVersion"
       shell: powershell
 
+    - name: Run unit tests
+      run: dotnet test --verbosity normal
+
     - name: Compress build output
       run: Compress-Archive -Path ./build_output/* -DestinationPath ./build_output/ChakramFF-alpha.zip
       shell: powershell
-
-    - name: Run unit tests
-      run: dotnet test --verbosity normal
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v3
