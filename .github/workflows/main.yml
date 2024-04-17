@@ -25,9 +25,10 @@ jobs:
     - name: Get version of the assembly
       run: |
         $path = "./build_output/ChakramFF.exe"
-        $assembly = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($path)
-        Write-Host "The version of the assembly is:" $assembly.ProductVersion
-        echo "ASSEMBLY_VERSION=$assembly.ProductVersion" >> $GITHUB_ENV
+        $assemblyInfo = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($path)
+        $productVersion = $assemblyInfo.ProductVersion
+        Write-Host "The version of the assembly is: $productVersion"
+        echo "ASSEMBLY_VERSION=$productVersion" >> $GITHUB_ENV
       shell: powershell
 
     - name: Run unit tests
