@@ -24,7 +24,8 @@ jobs:
 
     - name: Get assembly version
       run: |
-        $Version = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("$(System.Environment.GetEnvironmentVariable('GITHUB_WORKSPACE'))/build_output/ChakramFF.exe").ProductVersion
+        $exePath = Join-Path $env:GITHUB_WORKSPACE "build_output/ChakramFF.exe"
+        $Version = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($exePath).ProductVersion
         echo "AssemblyVersion=$Version" >> $GITHUB_ENV
       shell: powershell
 
