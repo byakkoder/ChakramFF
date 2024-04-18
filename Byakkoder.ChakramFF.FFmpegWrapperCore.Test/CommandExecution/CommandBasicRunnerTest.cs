@@ -32,10 +32,10 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.CommandExecution
     {
         #region Fields
         
-        private ICommandBasicRunner _commandBasicRunner;
-        private Mock<IProcessWrapper> _process;
-        private Mock<IBasicStartInfoBuilder> _startInfoBuilder;
-        private Mock<ICommandRunnerValidator> _commandRunnerValidator; 
+        private ICommandBasicRunner _commandBasicRunner = default!;
+        private Mock<IProcessWrapper> _process = default!;
+        private Mock<IBasicStartInfoBuilder> _startInfoBuilder = default!;
+        private Mock<ICommandRunnerValidator> _commandRunnerValidator = default!; 
 
         #endregion
 

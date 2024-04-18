@@ -28,10 +28,10 @@ namespace Byakkoder.ChakramFF.Entities.MediaFileInfo
         #region Properties
         
         [JsonPropertyName("streams")]
-        public List<MediaStream> Streams { get; set; }
+        public List<MediaStream>? Streams { get; set; }
 
         [JsonPropertyName("format")]
-        public MediaFormat Format { get; set; } 
+        public MediaFormat? Format { get; set; } 
 
         #endregion
     }    

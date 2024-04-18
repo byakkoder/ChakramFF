@@ -25,6 +25,6 @@ namespace Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.FFmpegResponse
 {
     public interface IFFmpegResponseBuilder
     {
-        FFmpegResponseInfo Build(string ffmpegOutputLine);
+        FFmpegResponseInfo? Build(string ffmpegOutputLine);
     }
 }

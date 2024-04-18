@@ -25,13 +25,13 @@ namespace Byakkoder.ChakramFF.Entities.FFmpegArgs
     {
         #region Properties
         
-        public StreamTypeArg StreamTypeArg { get; set; }
+        public StreamTypeArg StreamTypeArg { get; set; } = new();
 
         public int StreamIndex { get; set; }
 
         public Metadata Metadata { get; set; }
 
-        public string Value { get; set; } 
+        public string Value { get; set; } = string.Empty; 
 
         #endregion
     }

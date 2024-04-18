@@ -25,17 +25,17 @@ namespace Byakkoder.ChakramFF.Entities.Dto
     {
         #region Properties
 
-        public string StreamId { get; set; }
+        public string StreamId { get; set; } = string.Empty;
 
         public double Delay { get; set; }
 
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
-        public string Language { get; set; }
+        public string Language { get; set; } = string.Empty;
 
         public bool Default { get; set; }
 
-        public string FileName { get; set; }
+        public string FileName { get; set; } = string.Empty;
 
         public StreamType StreamType { get; set; }
 

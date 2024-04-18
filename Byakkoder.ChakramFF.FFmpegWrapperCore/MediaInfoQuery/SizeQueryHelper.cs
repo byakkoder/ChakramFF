@@ -36,7 +36,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.MediaInfoQuery
                 return new Size();
             }
 
-            MediaStream mediaStream = mediaInfo.Streams.Find(stream => stream.Width != null && stream.Height != null);
+            MediaStream? mediaStream = mediaInfo.Streams.Find(stream => stream.Width != null && stream.Height != null);
             if (mediaStream != null)
             {
                 return new Size(mediaStream.Width.GetValueOrDefault(), mediaStream.Height.GetValueOrDefault());

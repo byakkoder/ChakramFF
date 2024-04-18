@@ -37,10 +37,10 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.MediaPlayer
     {
         #region Fields
 
-        private IPlayer _player;
-        private Mock<IChakramSettingsSingleton> _chakramSettingsSingleton;
-        private Mock<ISingleArgGenerator<PlayerArgs>> _playerArgGenerator;
-        private Mock<ICommandBasicRunner> _commandRunner;
+        private IPlayer _player = default!;
+        private Mock<IChakramSettingsSingleton> _chakramSettingsSingleton = default!;
+        private Mock<ISingleArgGenerator<PlayerArgs>> _playerArgGenerator = default!;
+        private Mock<ICommandBasicRunner> _commandRunner = default!;
 
         #endregion
 

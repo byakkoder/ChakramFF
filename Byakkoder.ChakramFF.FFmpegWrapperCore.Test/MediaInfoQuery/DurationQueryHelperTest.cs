@@ -32,7 +32,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.MediaInfoQuery
     {
         #region Fields
         
-        private IDurationQueryHelper _durationQueryHelper; 
+        private IDurationQueryHelper _durationQueryHelper = default!; 
 
         #endregion
 

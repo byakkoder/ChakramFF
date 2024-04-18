@@ -33,21 +33,15 @@ namespace Byakkoder.ChakramFF.Entities.Dto
 
         #endregion
 
-        #region Constructor
-        
-        public MediaInfoDto() { }
-
-        #endregion
-
         #region Properties
-        
-        public MediaInfo MediaInfo { get; set; }
 
-        public string Filename { get; set; }
+        public MediaInfo MediaInfo { get; set; } = new();
 
-        public string FullFilename { get; set; }
+        public string Filename { get; set; } = string.Empty;
 
-        public string SizeString { get; private set; }
+        public string FullFilename { get; set; } = string.Empty;
+
+        public string SizeString { get; private set; } = string.Empty;
 
         public Size Size 
         {
@@ -62,7 +56,7 @@ namespace Byakkoder.ChakramFF.Entities.Dto
             }
         }
 
-        public string DurationString { get; private set; }
+        public string DurationString { get; private set; } = string.Empty;
 
         public TimeSpan Duration 
         {

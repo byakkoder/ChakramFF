@@ -32,25 +32,25 @@ namespace Byakkoder.ChakramFF.Entities.MediaFileInfo
         public long Index { get; set; }
 
         [JsonPropertyName("codec_name")]
-        public string CodecName { get; set; }
+        public string? CodecName { get; set; }
 
         [JsonPropertyName("codec_long_name")]
-        public string CodecLongName { get; set; }
+        public string? CodecLongName { get; set; }
 
         [JsonPropertyName("profile")]
-        public string Profile { get; set; }
+        public string? Profile { get; set; }
 
         [JsonPropertyName("codec_type")]
-        public string CodecType { get; set; }
+        public string? CodecType { get; set; }
 
         [JsonPropertyName("codec_time_base")]
-        public string CodecTimeBase { get; set; }
+        public string? CodecTimeBase { get; set; }
 
         [JsonPropertyName("codec_tag_string")]
-        public string CodecTagString { get; set; }
+        public string? CodecTagString { get; set; }
 
         [JsonPropertyName("codec_tag")]
-        public string CodecTag { get; set; }
+        public string? CodecTag { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("width")]
@@ -74,7 +74,7 @@ namespace Byakkoder.ChakramFF.Entities.MediaFileInfo
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("pix_fmt")]
-        public string PixFmt { get; set; }
+        public string? PixFmt { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("level")]
@@ -82,7 +82,7 @@ namespace Byakkoder.ChakramFF.Entities.MediaFileInfo
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("chroma_location")]
-        public string ChromaLocation { get; set; }
+        public string? ChromaLocation { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("refs")]
@@ -99,25 +99,25 @@ namespace Byakkoder.ChakramFF.Entities.MediaFileInfo
         public long? NalLengthSize { get; set; }
 
         [JsonPropertyName("r_frame_rate")]
-        public string RFrameRate { get; set; }
+        public string? RFrameRate { get; set; }
 
         [JsonPropertyName("avg_frame_rate")]
-        public string AvgFrameRate { get; set; }
+        public string? AvgFrameRate { get; set; }
 
         [JsonPropertyName("time_base")]
-        public string TimeBase { get; set; }
+        public string? TimeBase { get; set; }
 
         [JsonPropertyName("start_pts")]
         public long StartPts { get; set; }
 
         [JsonPropertyName("start_time")]
-        public string StartTime { get; set; }
+        public string? StartTime { get; set; }
 
         [JsonPropertyName("duration_ts")]
         public long DurationTs { get; set; }
 
         [JsonPropertyName("duration")]
-        public string Duration { get; set; }
+        public string? Duration { get; set; }
 
         [JsonPropertyName("bit_rate")]
         [JsonConverter(typeof(ParseLongStringConverter))]
@@ -133,14 +133,14 @@ namespace Byakkoder.ChakramFF.Entities.MediaFileInfo
         public long NbFrames { get; set; }
 
         [JsonPropertyName("disposition")]
-        public Dictionary<string, long> Disposition { get; set; }
+        public Dictionary<string, long>? Disposition { get; set; }
 
         [JsonPropertyName("tags")]
-        public Dictionary<string, string> Tags { get; set; }
+        public Dictionary<string, string>? Tags { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("sample_fmt")]
-        public string SampleFmt { get; set; }
+        public string? SampleFmt { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("sample_rate")]
@@ -153,7 +153,7 @@ namespace Byakkoder.ChakramFF.Entities.MediaFileInfo
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("channel_layout")]
-        public string ChannelLayout { get; set; }
+        public string? ChannelLayout { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("bits_per_sample")]

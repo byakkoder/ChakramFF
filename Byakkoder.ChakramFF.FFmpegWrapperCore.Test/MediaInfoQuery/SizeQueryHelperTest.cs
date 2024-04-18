@@ -34,7 +34,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.MediaInfoQuery
     {
         #region Fields
         
-        private ISizeQueryHelper _sizeQueryHelper; 
+        private ISizeQueryHelper _sizeQueryHelper = default!; 
 
         #endregion
 

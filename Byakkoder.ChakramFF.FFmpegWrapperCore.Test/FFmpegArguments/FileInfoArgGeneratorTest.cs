@@ -31,7 +31,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.FFmpegArguments
     {
         #region Fields
         
-        private ISingleArgGenerator<FileInfoArg> _fileInfoArgumentBuilder; 
+        private ISingleArgGenerator<FileInfoArg> _fileInfoArgumentBuilder = default!; 
 
         #endregion
 

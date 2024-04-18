@@ -32,7 +32,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.FFmpegArguments
     {
         #region Fields
         
-        private ISingleArgGenerator<ShowModeArg> _showModeArgBuilder; 
+        private ISingleArgGenerator<ShowModeArg> _showModeArgBuilder = default!; 
 
         #endregion
 

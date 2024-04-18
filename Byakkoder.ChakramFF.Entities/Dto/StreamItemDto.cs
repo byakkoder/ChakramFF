@@ -24,27 +24,18 @@ using Byakkoder.ChakramFF.Entities.MediaFileInfo;
 namespace Byakkoder.ChakramFF.Entities.Dto
 {
     public class StreamItemDto
-    {
-        #region Constructor
-        
-        public StreamItemDto()
-        {
-            StreamSettings = new StreamSettingsDto();
-        }
-
-        #endregion
-
+    {        
         #region Properties
 
-        public string StreamId { get; set; }
+        public string StreamId { get; set; } = string.Empty;
 
         public bool IsSelected { get; set; }
 
-        public MediaFormat MediaFormat { get; set; }
+        public MediaFormat MediaFormat { get; set; } = new();
 
-        public MediaStream MediaStream { get; set; }
+        public MediaStream MediaStream { get; set; } = new();
 
-        public StreamSettingsDto StreamSettings { get; set; }
+        public StreamSettingsDto StreamSettings { get; set; } = new();
 
         #endregion
     }

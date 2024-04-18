@@ -35,7 +35,7 @@ namespace Byakkoder.ChakramFF.Entities
 
         #region Public Properties
         
-        public string FFmpegRootPath { get; set; }
+        public string FFmpegRootPath { get; set; } = string.Empty;
 
         [JsonIgnore]
         public string FFmpegPath

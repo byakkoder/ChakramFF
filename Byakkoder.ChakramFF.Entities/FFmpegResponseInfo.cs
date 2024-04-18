@@ -32,13 +32,13 @@ namespace Byakkoder.ChakramFF.Entities
 
         public float Q { get; set; }
 
-        public string Size { get; set; }
+        public string Size { get; set; } = string.Empty;
 
-        public string Time { get; set; }
+        public string Time { get; set; } = string.Empty;
 
-        public string Bitrate { get; set; }
+        public string Bitrate { get; set; } = string.Empty;
 
-        public string Speed { get; set; } 
+        public string Speed { get; set; } = string.Empty; 
 
         #endregion
     }

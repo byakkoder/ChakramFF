@@ -35,14 +35,14 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.DotNetWrappers
     {
         #region Fields
         
-        private Process _process;
+        private Process _process = default!;
 
         #endregion
 
         #region Events
         
-        public event DataReceivedEventHandler ErrorDataReceived;
-        public event DataReceivedEventHandler OutputDataReceived;
+        public event DataReceivedEventHandler? ErrorDataReceived;
+        public event DataReceivedEventHandler? OutputDataReceived;
 
         #endregion
 

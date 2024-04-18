@@ -25,6 +25,6 @@ namespace Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.ChakramSettings
 {
     public interface ILoadSettingsManager
     {
-        ChakramSettingsInfo Load();
+        ChakramSettingsInfo? Load();
     }
 }

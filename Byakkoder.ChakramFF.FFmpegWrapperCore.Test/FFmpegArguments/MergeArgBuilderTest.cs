@@ -35,13 +35,13 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.FFmpegArguments
     {
         #region Fields
 
-        private ISingleArgGenerator<MergeArgs> _mergeArgGenerator;
+        private ISingleArgGenerator<MergeArgs> _mergeArgGenerator = default!;
 
-        private Mock<IMultipleArgsGenerator> _multipleArgsGenerator;
-        private Mock<ISingleArgGenerator<InputArg>> _inputArgGenerator;
-        private Mock<ISingleArgGenerator<MapArg>> _mapArgGenerator;
-        private Mock<ISingleArgGenerator<DefaultArg>> _defaultArgGenerator;
-        private Mock<ISingleArgGenerator<MetadataArg>> _metadataArgGenerator;
+        private Mock<IMultipleArgsGenerator> _multipleArgsGenerator = default!;
+        private Mock<ISingleArgGenerator<InputArg>> _inputArgGenerator = default!;
+        private Mock<ISingleArgGenerator<MapArg>> _mapArgGenerator = default!;
+        private Mock<ISingleArgGenerator<DefaultArg>> _defaultArgGenerator = default!;
+        private Mock<ISingleArgGenerator<MetadataArg>> _metadataArgGenerator = default!;
 
         #endregion
 

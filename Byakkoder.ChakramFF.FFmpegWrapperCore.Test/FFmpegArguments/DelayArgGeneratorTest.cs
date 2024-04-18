@@ -32,7 +32,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.FFmpegArguments
     {
         #region Fields
         
-        private ISingleArgGenerator<DelayArg> _delayArgumentBuilder; 
+        private ISingleArgGenerator<DelayArg> _delayArgumentBuilder = default!; 
 
         #endregion
 

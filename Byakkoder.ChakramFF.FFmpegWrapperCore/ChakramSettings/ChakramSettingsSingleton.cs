@@ -27,8 +27,8 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.ChakramSettings
     public class ChakramSettingsSingleton : IChakramSettingsSingleton
     {
         #region Properties
-        
-        public ChakramSettingsInfo ChakramSettings { get; set; } 
+
+        public ChakramSettingsInfo ChakramSettings { get; set; } = new();
 
         #endregion
     }

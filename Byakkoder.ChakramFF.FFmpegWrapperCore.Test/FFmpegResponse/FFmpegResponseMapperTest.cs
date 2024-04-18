@@ -33,7 +33,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.FFmpegResponse
     {
         #region Fields
         
-        private IFFmpegResponseMapper _fFmpegResponseMapper; 
+        private IFFmpegResponseMapper _fFmpegResponseMapper = default!; 
 
         #endregion
 

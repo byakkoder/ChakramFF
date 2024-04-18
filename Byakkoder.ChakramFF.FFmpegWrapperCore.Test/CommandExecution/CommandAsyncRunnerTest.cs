@@ -36,10 +36,11 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.CommandExecution
     {
         #region Fields
         
-        private ICommandAsyncRunner _commandAsyncRunner;
-        private Mock<IProcessWrapper> _process;
-        private Mock<IStartInfoBuilder> _startInfoBuilder;
-        private Mock<ICommandRunnerValidator> _commandRunnerValidator; 
+        private ICommandAsyncRunner _commandAsyncRunner = default!;
+        private Mock<IProcessWrapper> _process = default!;
+        private Mock<IStartInfoBuilder> _startInfoBuilder = default!;
+        private Mock<ICommandRunnerValidator> _commandRunnerValidator = default!;
+        private Mock<CommandAsyncRunnerTest> _eventSenderMock = default!;
 
         #endregion
 
@@ -51,6 +52,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.CommandExecution
             _process = new Mock<IProcessWrapper>();
             _commandRunnerValidator = new Mock<ICommandRunnerValidator>();
             _startInfoBuilder = new Mock<IStartInfoBuilder>();
+            _eventSenderMock = new();
 
             _commandAsyncRunner = new CommandAsyncRunner(_process.Object, _startInfoBuilder.Object, _commandRunnerValidator.Object);
         }
@@ -95,7 +97,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.CommandExecution
 
             string currentOutput = string.Empty;
             string expectedOutput = "some_command_response";
-
+            
             DataReceivedEventArgs mockEventArgs = MockHelper.GetMockInstance<DataReceivedEventArgs>();
             Dictionary<string, FieldInfo> fields = MockHelper.GetFieldsInfo<DataReceivedEventArgs>();
             MockHelper.SetFieldValue(mockEventArgs, fields["_data"], expectedOutput);
@@ -106,7 +108,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.CommandExecution
 
             _commandAsyncRunner.OnDataReceived += (data) => { currentOutput = data; };
 
-            _process.Raise(x => x.OutputDataReceived += null, new object[] { null, mockEventArgs });
+            _process.Raise(x => x.OutputDataReceived += null, [_eventSenderMock, mockEventArgs]);
 
             #endregion
 
@@ -135,7 +137,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.CommandExecution
 
             _commandAsyncRunner.OnErrorReceived += (data) => { currentOutput = data; };
 
-            _process.Raise(x => x.ErrorDataReceived += null, new object[] { null, mockEventArgs });
+            _process.Raise(x => x.ErrorDataReceived += null, [_eventSenderMock, mockEventArgs]);
 
             #endregion
 

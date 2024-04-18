@@ -68,11 +68,14 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.MediaMetadata
             mediaInfoDto.FullFilename = fileInfoArg.FilePath;
             mediaInfoDto.Filename = new FileInfo(fileInfoArg.FilePath).Name;
 
-            MediaInfo mediaInfo = _infoHelper.GetVideoInfo(fileInfoArg);
+            MediaInfo? mediaInfo = _infoHelper.GetVideoInfo(fileInfoArg);
 
-            mediaInfoDto.MediaInfo = mediaInfo;
-            mediaInfoDto.Size = _sizeQueryHelper.GetSize(mediaInfo);
-            mediaInfoDto.Duration = _durationQueryHelper.GetDuration(mediaInfo);
+            if(mediaInfo != null)
+            {
+                mediaInfoDto.MediaInfo = mediaInfo;
+                mediaInfoDto.Size = _sizeQueryHelper.GetSize(mediaInfo);
+                mediaInfoDto.Duration = _durationQueryHelper.GetDuration(mediaInfo);
+            }
 
             return mediaInfoDto;
         }

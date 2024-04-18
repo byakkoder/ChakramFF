@@ -29,17 +29,17 @@ namespace Byakkoder.ChakramFF.Entities.MediaFileInfo
         #region Properties
         
         [JsonPropertyName("major_brand")]
-        public string MajorBrand { get; set; }
+        public string? MajorBrand { get; set; }
 
         [JsonPropertyName("minor_version")]
         [JsonConverter(typeof(ParseLongStringConverter))]
         public long MinorVersion { get; set; }
 
         [JsonPropertyName("compatible_brands")]
-        public string CompatibleBrands { get; set; }
+        public string? CompatibleBrands { get; set; }
 
         [JsonPropertyName("encoder")]
-        public string Encoder { get; set; } 
+        public string? Encoder { get; set; } 
 
         #endregion
     }

@@ -25,9 +25,9 @@ namespace Byakkoder.ChakramFF.Entities.FFmpegArgs
     {
         #region Properties
         
-        public string FileToPlay { get; set; }
+        public string FileToPlay { get; set; } = string.Empty;
 
-        public StreamSpecifierArg StreamSpecifierArg { get; set; } 
+        public StreamSpecifierArg StreamSpecifierArg { get; set; } = new(); 
 
         #endregion
     }

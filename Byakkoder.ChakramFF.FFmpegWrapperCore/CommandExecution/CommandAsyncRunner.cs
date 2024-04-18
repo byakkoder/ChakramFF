@@ -31,8 +31,8 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.CommandExecution
     {
         #region Events
 
-        public event Action<string> OnDataReceived;
-        public event Action<string> OnErrorReceived;
+        public event Action<string>? OnDataReceived;
+        public event Action<string>? OnErrorReceived;
 
         #endregion
 

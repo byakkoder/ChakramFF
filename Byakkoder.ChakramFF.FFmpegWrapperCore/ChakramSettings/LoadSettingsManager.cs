@@ -51,7 +51,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.ChakramSettings
 
         #region Public Methods
         
-        public ChakramSettingsInfo Load()
+        public ChakramSettingsInfo? Load()
         {
             string settings = _configurationWrapper.Load();
 
@@ -61,7 +61,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.ChakramSettings
             }
             else
             {
-                _chakramSettingsSingleton.ChakramSettings = _serializationWrapper.Deserialize<ChakramSettingsInfo>(settings);
+                _chakramSettingsSingleton.ChakramSettings = _serializationWrapper.Deserialize<ChakramSettingsInfo>(settings) ?? new();
             }
 
             return _chakramSettingsSingleton.ChakramSettings;

@@ -23,7 +23,7 @@ namespace Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.DotNetWrappers
 {
     public interface ISerializationWrapper
     {
-        T Deserialize<T>(string value);
+        T? Deserialize<T>(string value);
         string Serialize(object objectToSerialize);
     }
 }

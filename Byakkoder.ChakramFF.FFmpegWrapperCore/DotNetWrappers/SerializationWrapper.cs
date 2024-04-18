@@ -33,7 +33,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.DotNetWrappers
             return JsonSerializer.Serialize(objectToSerialize);
         }
 
-        public T Deserialize<T>(string value)
+        public T? Deserialize<T>(string value)
         {
             return JsonSerializer.Deserialize<T>(value);
         } 

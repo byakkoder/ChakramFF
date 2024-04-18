@@ -25,9 +25,9 @@ namespace Byakkoder.ChakramFF.Entities.FFmpegArgs
     {
         #region Properties
         
-        public string Input { get; set; }
+        public string Input { get; set; } = string.Empty;
 
-        public DelayArg DelayArg { get; set; } 
+        public DelayArg DelayArg { get; set; } = new(); 
 
         #endregion
     }

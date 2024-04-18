@@ -33,8 +33,8 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.FFmpegArguments
     {
         #region Fields
         
-        private ISingleArgGenerator<DefaultArg> _defaultStreamArgGenerator;
-        private Mock<ISingleArgGenerator<StreamTypeArg>> _streamTypeArgGenerator; 
+        private ISingleArgGenerator<DefaultArg> _defaultStreamArgGenerator = default!;
+        private Mock<ISingleArgGenerator<StreamTypeArg>> _streamTypeArgGenerator = default!; 
 
         #endregion
 

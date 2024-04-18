@@ -39,10 +39,10 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.MediaMetadata
     {
         #region Fields
 
-        private IMediaInfoBuilder _mediaInfoBuilder;
-        private Mock<IVideoInfoHelper> _infoHelper;
-        private Mock<ISizeQueryHelper> _sizeQueryHelper;
-        private Mock<IDurationQueryHelper> _durationQueryHelper;
+        private IMediaInfoBuilder _mediaInfoBuilder = default!;
+        private Mock<IVideoInfoHelper> _infoHelper = default!;
+        private Mock<ISizeQueryHelper> _sizeQueryHelper = default!;
+        private Mock<IDurationQueryHelper> _durationQueryHelper = default!;
 
         #endregion
 

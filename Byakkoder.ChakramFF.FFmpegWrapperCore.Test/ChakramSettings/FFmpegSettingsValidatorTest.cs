@@ -33,9 +33,9 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.ChakramSettings
     {
         #region Fields
         
-        private IFFmpegSettingsValidator _fFmpegSettingsValidator;
-        private Mock<IChakramSettingsSingleton> _chakramSettingsSingleton;
-        private Mock<IFileWrapper> _fileWrapper; 
+        private IFFmpegSettingsValidator _fFmpegSettingsValidator = default!;
+        private Mock<IChakramSettingsSingleton> _chakramSettingsSingleton = default!;
+        private Mock<IFileWrapper> _fileWrapper = default!; 
 
         #endregion
 

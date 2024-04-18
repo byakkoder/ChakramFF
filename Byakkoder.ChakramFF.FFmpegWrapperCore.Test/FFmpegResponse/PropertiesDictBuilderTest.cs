@@ -32,7 +32,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.FFmpegResponse
     {
         #region Fields
         
-        private IPropertiesDictBuilder _propertiesDictBuilder; 
+        private IPropertiesDictBuilder _propertiesDictBuilder = default!; 
 
         #endregion
 

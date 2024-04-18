@@ -27,7 +27,7 @@ namespace Byakkoder.ChakramFF.Entities.MediaFileInfo
 {
     public class MediaFormat
     {
-        private string _filename;
+        private string _filename = string.Empty;
 
         #region Properties
 
@@ -52,16 +52,16 @@ namespace Byakkoder.ChakramFF.Entities.MediaFileInfo
         public long NbPrograms { get; set; }
 
         [JsonPropertyName("format_name")]
-        public string FormatName { get; set; }
+        public string? FormatName { get; set; }
 
         [JsonPropertyName("format_long_name")]
-        public string FormatLongName { get; set; }
+        public string? FormatLongName { get; set; }
 
         [JsonPropertyName("start_time")]
-        public string StartTime { get; set; }
+        public string? StartTime { get; set; }
 
         [JsonPropertyName("duration")]
-        public string Duration { get; set; }
+        public string? Duration { get; set; }
 
         [JsonPropertyName("size")]
         [JsonConverter(typeof(ParseLongStringConverter))]
@@ -75,7 +75,7 @@ namespace Byakkoder.ChakramFF.Entities.MediaFileInfo
         public long ProbeScore { get; set; }
 
         [JsonPropertyName("tags")]
-        public FormatTags Tags { get; set; } 
+        public FormatTags? Tags { get; set; } 
 
         #endregion
     }

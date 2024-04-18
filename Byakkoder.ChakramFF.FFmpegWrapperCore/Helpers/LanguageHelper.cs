@@ -48,7 +48,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Helpers
 
         public List<LanguageInfo> GetLanguages()
         {
-            return _serializationWrapper.Deserialize<List<LanguageInfo>>(LibResources.Languages_ISO_639_2).OrderBy(language => language.Code).ToList();
+            return _serializationWrapper.Deserialize<List<LanguageInfo>>(LibResources.Languages_ISO_639_2)?.OrderBy(language => language.Code).ToList() ?? new();
         }
 
         #endregion

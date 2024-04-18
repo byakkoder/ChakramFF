@@ -37,11 +37,11 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Conversion
     {
         #region Events
 
-        public event Action<string> OnCommandSent;
-        public event Action<string> OnDataReceived;
-        public event Action<string> OnErrorReceived;
-        public event Action<int> OnProgress;
-        public event Action OnEndProgress;
+        public event Action<string>? OnCommandSent;
+        public event Action<string>? OnDataReceived;
+        public event Action<string>? OnErrorReceived;
+        public event Action<int>? OnProgress;
+        public event Action? OnEndProgress;
 
         #endregion
 
@@ -62,7 +62,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Conversion
         private readonly IFFmpegResponseBuilder _ffmpegResponseBuilder;
         private readonly ISecondsTimeConverter _secondsTimeConverter;
         
-        private MergeArgs _mergeArgs;
+        private MergeArgs? _mergeArgs;
         private bool _endProgressRaised;
         private bool _isAborted;
 
@@ -92,6 +92,11 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Conversion
 
         public void Merge(MergeArgs mergeArgs)
         {
+            if (_mergeArgs == null)
+            {
+                return;
+            }
+
             _mergeArgs = mergeArgs;
             _isAborted = false;
 
@@ -109,6 +114,11 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Conversion
 
         public void Stop()
         {
+            if(_mergeArgs == null) 
+            { 
+                return; 
+            }
+
             _endProgressRaised = false;
             _commandRunner.Stop(StopCommand);
             _isAborted = true;
@@ -131,7 +141,12 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Conversion
 
         private void CommandRunner_OnErrorReceived(string outputLine)
         {
-            FFmpegResponseInfo fFmpegResponseInfo = _ffmpegResponseBuilder.Build(outputLine);
+            if (_mergeArgs == null)
+            {
+                return;
+            }
+
+            FFmpegResponseInfo? fFmpegResponseInfo = _ffmpegResponseBuilder.Build(outputLine);
             if (fFmpegResponseInfo != null)
             {
                 double percentProcessed = System.Convert.ToDouble(_secondsTimeConverter.ConvertToSeconds(fFmpegResponseInfo.Time)) * 100D / System.Convert.ToDouble(_mergeArgs.Duration);

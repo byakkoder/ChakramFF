@@ -27,7 +27,7 @@ namespace Byakkoder.ChakramFF.Entities.FFmpegArgs
         
         public int InputIndex { get; set; }
 
-        public StreamTypeArg StreamTypeArg { get; set; }
+        public StreamTypeArg StreamTypeArg { get; set; } = new();
 
         public int StreamIndex { get; set; } 
 

@@ -34,8 +34,8 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.CommandExecution
     {
         #region Fields
 
-        private ICommandRunnerValidator _commandRunnerValidator;
-        private Mock<IFileWrapper> _fileWrapper;
+        private ICommandRunnerValidator _commandRunnerValidator = default!;
+        private Mock<IFileWrapper> _fileWrapper = default!;
 
         #endregion
 

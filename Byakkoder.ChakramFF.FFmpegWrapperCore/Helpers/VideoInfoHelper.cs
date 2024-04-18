@@ -62,7 +62,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Helpers
 
         #region Public Methods
 
-        public MediaInfo GetVideoInfo(FileInfoArg fileInfoArg)
+        public MediaInfo? GetVideoInfo(FileInfoArg fileInfoArg)
         {
             if (string.IsNullOrWhiteSpace(fileInfoArg.FilePath))
             {
@@ -73,9 +73,12 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Helpers
 
             string fileMetadata = _commandRunner.Run(_chakramSettingsSingleton.ChakramSettings.FFprobePath, arguments, false);
 
-            MediaInfo mediaInfo = _serializationWrapper.Deserialize<MediaInfo>(fileMetadata);
+            MediaInfo? mediaInfo = _serializationWrapper.Deserialize<MediaInfo>(fileMetadata);
 
-            _streamIndexer.SetIndex(mediaInfo.Streams);
+            if (mediaInfo != null && mediaInfo.Streams != null)
+            {
+                _streamIndexer.SetIndex(mediaInfo.Streams);
+            }            
 
             return mediaInfo;
         }

@@ -34,9 +34,9 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.FFmpegResponse
     {
         #region Fields
         
-        private IFFmpegResponseBuilder _fFFmpegResponseBuilder;
-        private Mock<IPropertiesDictBuilder> _propertiesDictBuilder;
-        private Mock<IFFmpegResponseMapper> _fFmpegResponseMapper; 
+        private IFFmpegResponseBuilder _fFFmpegResponseBuilder = default!;
+        private Mock<IPropertiesDictBuilder> _propertiesDictBuilder = default!;
+        private Mock<IFFmpegResponseMapper> _fFmpegResponseMapper = default!; 
 
         #endregion
 

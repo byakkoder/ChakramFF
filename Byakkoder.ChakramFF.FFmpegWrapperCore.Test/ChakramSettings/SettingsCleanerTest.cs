@@ -32,9 +32,9 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.ChakramSettings
     {
         #region Fields
         
-        private ISettingsCleaner _settingsCleaner;
-        private Mock<IChakramSettingsSingleton> _chakramSettingsSingleton;
-        private Mock<ISaveSettingsManager> _saveSettingsManager; 
+        private ISettingsCleaner _settingsCleaner = default!;
+        private Mock<IChakramSettingsSingleton> _chakramSettingsSingleton = default!;
+        private Mock<ISaveSettingsManager> _saveSettingsManager = default!; 
 
         #endregion
 

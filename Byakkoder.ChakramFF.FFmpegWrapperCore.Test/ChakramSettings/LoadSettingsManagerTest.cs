@@ -33,10 +33,10 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.ChakramSettings
     {
         #region Fields
         
-        private ILoadSettingsManager _loadSettingsManager;
-        private Mock<IChakramSettingsSingleton> _chakramSettingsSingleton;
-        private Mock<IConfigurationWrapper> _configurationWrapper;
-        private Mock<ISerializationWrapper> _serializationWrapper; 
+        private ILoadSettingsManager _loadSettingsManager = default!;
+        private Mock<IChakramSettingsSingleton> _chakramSettingsSingleton = default!;
+        private Mock<IConfigurationWrapper> _configurationWrapper = default!;
+        private Mock<ISerializationWrapper> _serializationWrapper = default!; 
 
         #endregion
 
@@ -71,7 +71,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.ChakramSettings
 
             #region Act
 
-            ChakramSettingsInfo chakramSettingsInfo = _loadSettingsManager.Load();
+            ChakramSettingsInfo? chakramSettingsInfo = _loadSettingsManager.Load();
 
             #endregion
 
@@ -102,7 +102,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.ChakramSettings
 
             #region Act
 
-            ChakramSettingsInfo chakramSettingsInfo = _loadSettingsManager.Load();
+            ChakramSettingsInfo? chakramSettingsInfo = _loadSettingsManager.Load();
 
             #endregion
 

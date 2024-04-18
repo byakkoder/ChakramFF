@@ -34,8 +34,8 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.FFmpegArguments
     {
         #region Fields
         
-        private IMultipleArgsGenerator _multipleArgsBuilder;
-        private Mock<ISingleArgGenerator<MetadataArg>> _metadataArgBuilder; 
+        private IMultipleArgsGenerator _multipleArgsBuilder = default!;
+        private Mock<ISingleArgGenerator<MetadataArg>> _metadataArgBuilder = default!; 
 
         #endregion
 

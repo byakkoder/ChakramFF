@@ -25,7 +25,7 @@ namespace Byakkoder.ChakramFF.Entities.FFmpegArgs
     {
         #region Properties
         
-        public StreamSpecifierArg StreamSpecifierArg { get; set; } 
+        public StreamSpecifierArg StreamSpecifierArg { get; set; } = new(); 
 
         #endregion
     }

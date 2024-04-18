@@ -25,29 +25,17 @@ namespace Byakkoder.ChakramFF.Entities.FFmpegArgs
 {
     public class MergeArgs
     {
-        #region Constructor
-        
-        public MergeArgs()
-        {
-            InputArgs = new List<InputArg>();
-            MapArgs = new List<MapArg>();
-            DefaultArgs = new List<DefaultArg>();
-            MetadataArgs = new List<MetadataArg>();
-        }
-
-        #endregion
-
         #region Properties
-        
-        public List<InputArg> InputArgs { get; set; }
 
-        public List<MapArg> MapArgs { get; set; }
+        public List<InputArg> InputArgs { get; set; } = [];
 
-        public List<DefaultArg> DefaultArgs { get; set; }
+        public List<MapArg> MapArgs { get; set; } = [];
 
-        public List<MetadataArg> MetadataArgs { get; set; }
+        public List<DefaultArg> DefaultArgs { get; set; } = [];
 
-        public string OutputFile { get; set; }
+        public List<MetadataArg> MetadataArgs { get; set; } = [];
+
+        public string OutputFile { get; set; } = string.Empty;
 
         public float Duration { get; set; }
 

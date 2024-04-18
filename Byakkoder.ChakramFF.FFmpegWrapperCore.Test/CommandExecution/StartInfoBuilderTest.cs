@@ -32,9 +32,9 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.CommandExecution
     {
         #region Fields
         
-        private IStartInfoBuilder _startInfoBuilder;
-        private Mock<IBasicStartInfoBuilder> _basicStartInfoBuilder;
-        private Mock<IStartInfoValidator> _startInfoValidator;
+        private IStartInfoBuilder _startInfoBuilder = default!;
+        private Mock<IBasicStartInfoBuilder> _basicStartInfoBuilder = default!;
+        private Mock<IStartInfoValidator> _startInfoValidator = default!;
 
         #endregion
 

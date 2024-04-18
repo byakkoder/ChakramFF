@@ -40,12 +40,12 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test
     {
         #region Fields
 
-        private IVideoInfoHelper _videoInfoHelper;
-        private Mock<IChakramSettingsSingleton> _chakramSettingsSingleton;
-        private Mock<ISingleArgGenerator<FileInfoArg>> _fileInfoArgGenerator;
-        private Mock<ICommandSynchRunner> _commandRunner;
-        private Mock<ISerializationWrapper> _serializationWrapper;
-        private Mock<IStreamIndexer> _streamIndexer;
+        private IVideoInfoHelper _videoInfoHelper = default!;
+        private Mock<IChakramSettingsSingleton> _chakramSettingsSingleton = default!;
+        private Mock<ISingleArgGenerator<FileInfoArg>> _fileInfoArgGenerator = default!;
+        private Mock<ICommandSynchRunner> _commandRunner = default!;
+        private Mock<ISerializationWrapper> _serializationWrapper = default!;
+        private Mock<IStreamIndexer> _streamIndexer = default!;
 
         #endregion
 

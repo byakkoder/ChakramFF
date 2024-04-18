@@ -55,7 +55,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.FFmpegResponse
 
         #region Public Methods
 
-        public FFmpegResponseInfo Build(string ffmpegOutputLine)
+        public FFmpegResponseInfo? Build(string ffmpegOutputLine)
         {
             if (!ffmpegOutputLine.StartsWith(ValidLineStartCurrent) && !ffmpegOutputLine.StartsWith(ValidLineStartLegacy))
             {

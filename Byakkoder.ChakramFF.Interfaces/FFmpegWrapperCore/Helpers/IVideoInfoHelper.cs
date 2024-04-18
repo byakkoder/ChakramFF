@@ -26,6 +26,6 @@ namespace Byakkoder.ChakramFF.Interfaces.FFmpegWrapperCore.Helpers
 {
     public interface IVideoInfoHelper
     {
-        MediaInfo GetVideoInfo(FileInfoArg fileInfoArg);
+        MediaInfo? GetVideoInfo(FileInfoArg fileInfoArg);
     }
 }

@@ -31,7 +31,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.Helpers
     {
         #region Fields
         
-        private ISecondsTimeConverter _secondsTimeConverter; 
+        private ISecondsTimeConverter _secondsTimeConverter = default!; 
 
         #endregion
 

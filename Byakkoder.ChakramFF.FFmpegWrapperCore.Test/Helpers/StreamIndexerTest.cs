@@ -32,7 +32,7 @@ namespace Byakkoder.ChakramFF.FFmpegWrapperCore.Test.Helpers
     {
         #region Fields
         
-        private StreamIndexer _streamIndexer; 
+        private StreamIndexer _streamIndexer = default!; 
 
         #endregion
 

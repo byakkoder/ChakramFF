@@ -27,11 +27,11 @@ namespace Byakkoder.ChakramFF.Entities.Dto
     {
         #region Properties
         
-        public string StreamId { get; set; }
+        public string StreamId { get; set; } = string.Empty;
 
-        public string FileName { get; set; }
+        public string FileName { get; set; } = string.Empty;
 
-        public MediaStream MediaStream { get; set; }
+        public MediaStream MediaStream { get; set; } = new();
 
         public bool HasDefaultVideoStream { get; set; }
 
