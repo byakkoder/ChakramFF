@@ -1,5 +1,5 @@
 /*********************************************************************************
- Copyright (C) 2021-present John GarcÃ­a
+ Copyright (C) 2021-present John García
  
  This file is part of ChakramFF.
 
@@ -40,6 +40,7 @@ namespace ChakramFF
         #region Properties
 
         [Category("Appareance"), Description("Form title to display in title bar.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string FormTitle
         {
             get
@@ -53,6 +54,7 @@ namespace ChakramFF
         }
 
         [Category("Appareance"), Description("Indicates that the form is resizable.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool Resizable
         {
             get
@@ -67,6 +69,7 @@ namespace ChakramFF
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new bool MaximizeBox
         {
             get
@@ -79,6 +82,7 @@ namespace ChakramFF
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new bool MinimizeBox
         {
             get
